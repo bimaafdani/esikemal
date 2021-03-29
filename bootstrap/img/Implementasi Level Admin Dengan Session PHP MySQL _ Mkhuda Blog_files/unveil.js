@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery(".post-featured-image img").unveil(120);});

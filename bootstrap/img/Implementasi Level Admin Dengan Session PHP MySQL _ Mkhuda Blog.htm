@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+
+<html id="ie8" lang="en-US">
+
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html class=" js" lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>
+Implementasi Level Admin Dengan Session PHP MySQL | Mkhuda Blog
+</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://mkhuda.com/xmlrpc.php">
+<!--[if lt IE 9]>
+
+<script src="http://mkhuda.com/wp-content/themes/bluevita/js/html5.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="http://mkhuda.com/wp-content/themes/bluevita/css/ie.css" />
+
+<![endif]-->
+ 
+<meta name="description" content="Sebuah website yang memiliki multiple admin atau mungkin admin dan user tentunya membutuhkan implementasi pemrograman menggunakan teknik pelevelan">
+<meta name="keywords" content="mkhuda, blog teknologi, blog curhat, curhat pengalaman, dunia teknologi, tutorial html5, tutorial inkscape, tutorial aplikasi, inkscape, teknologi, mobile, android, html5, open source, curhat,, admin level, php admin leveling, level php menggunakan session, session level admin, php mysql,">
+<meta name="alexaVerifyID" content="EAMC7f2ce-rMvQh88y2vnMOZrcE">
+<meta name="msvalidate.01" content="C233DAA628883F2DD70CD54C789D0494">
+<link rel="author" href="https://plus.google.com/+MuhammadKHuda?rel=author">
+<meta property="og:site_name" content="Mkhuda Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Implementasi Level Admin Dengan Session PHP MySQL">
+<meta property="og:url" content="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/">
+<meta property="og:description" content="Sebuah website yang memiliki multiple admin atau mungkin admin dan user tentunya membutuhkan implementasi pemrograman menggunakan teknik pelevelan">
+<meta property="og:locale" content="en_US">
+<meta property="og:updated_time" content="2014-06-03T13:22:03+00:00">
+<meta property="og:image" content="http://mkhuda.com/wp-content/uploads/2013/06/admin-leveling-php.png">
+<meta property="og:image:width" content="295">
+<meta property="og:image:height" content="241">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="http://mkhuda.com/wp-content/uploads/2013/06/Tabel-database-user.jpg">
+<meta property="og:image:width" content="187">
+<meta property="og:image:height" content="191">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="article:published_time" content="2013-06-01T09:08:43+00:00">
+<meta property="article:modified_time" content="2014-06-03T13:22:03+00:00">
+<meta property="article:author" content="http://mkhuda.com/author/mkhuda/">
+<meta property="article:publisher" content="http://mkhuda.com/">
+<meta property="article:section" content="PHP">
+<meta property="article:section" content="Web">
+<meta property="article:tag" content="mkhuda">
+<meta property="article:tag" content="blog teknologi">
+<meta property="article:tag" content="blog curhat">
+<meta property="article:tag" content="curhat pengalaman">
+<meta property="article:tag" content="dunia teknologi">
+<meta property="article:tag" content="tutorial html5">
+<meta property="article:tag" content="tutorial inkscape">
+<meta property="article:tag" content="tutorial aplikasi">
+<meta property="article:tag" content="inkscape">
+<meta property="article:tag" content="teknologi">
+<meta property="article:tag" content="mobile">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="html5">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="curhat">
+<meta property="article:tag" content="admin level">
+<meta property="article:tag" content="php admin leveling">
+<meta property="article:tag" content="level php menggunakan session">
+<meta property="article:tag" content="session level admin">
+<meta property="article:tag" content="php mysql">
+ 
+<link rel="alternate" type="application/rss+xml" title="Mkhuda Blog » Feed" href="http://mkhuda.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Mkhuda Blog » Comments Feed" href="http://mkhuda.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Mkhuda Blog » Implementasi Level Admin Dengan Session PHP MySQL Comments Feed" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/feed/">
+<script async="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/cbgapi.loaded_1"></script><script async="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/cbgapi.loaded_0"></script><script src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/analytics.js" async=""></script><script src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/widgets.js" id="twitter-wjs"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/mkhuda.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.2"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/wp-emoji-release.js"></script>
+<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-0.1em!important;background:none!important;padding:0!important;}</style>
+<link rel="stylesheet" id="tfg_style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/tfg_style.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-arduino-ide-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/arduino-ide.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="cptch_stylesheet-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/style_003.css" type="text/css" media="all">
+<link rel="stylesheet" id="email-subscription_css-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/email-subscription.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-four-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="elusive-style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/elusive-webfont.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/font-awesome_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="widget-icon-front-style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/widget-icon-front.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="easy_table_style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/style_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="better-related-frontend-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/better-related.css" type="text/css" media="all">
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/jquery_002.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.7.1","is_admin":"0","ajaxurl":"http:\/\/mkhuda.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/crayon.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/jquery.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/unveil.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://mkhuda.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://mkhuda.com/wp-includes/wlwmanifest.xml">
+<link rel="prev" title="Library Jquery dan Javascript Untuk Aplikasi Phonegap" href="http://mkhuda.com/android/library-jquery-dan-javascript-untuk-aplikasi-phonegap/">
+<link rel="next" title="Susahnya Mencari Domain Logo" href="http://mkhuda.com/coretan-curhat/susahnya-mencari-domain-logo/">
+<meta name="generator" content="WordPress 4.3.2">
+<link rel="canonical" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/">
+<link rel="shortlink" href="http://mkhuda.com/?p=2050">
+ 
+<link rel="image_src" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/admin-leveling-php.png">
+ 
+<meta name="dcterms.coverage" content="World">
+<meta name="dcterms.creator" content="K Huda, Muhammad">
+<meta name="dcterms.date" content="2013-06-01T09:08:43+00:00">
+<meta name="dcterms.format" content="text/html">
+<meta name="dcterms.identifier" content="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/">
+<meta name="dcterms.publisher" content="Mkhuda Blog">
+<meta name="dcterms.type" content="Text">
+<style type="text/css">.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}</style>
+ <link rel="icon" href="http://mkhuda.com/wp-content/uploads/2011/10/iconrel.png" type="image/png">
+<link rel="apple-touch-icon" href="http://mkhuda.com/wp-content/uploads/2011/10/iconrel2.png">
+<script src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/request" async="" type="text/javascript"></script><script src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/button.js" async="" charset="utf-8" type="text/javascript"></script></head>
+<body class="single single-post postid-2050 single-format-standard" id="">
+<div id="page" class="hfeed">
+<div id="masthead" class="site-header left-style" role="banner">
+<div id="header-logo-group">
+<div id="logo-text">
+<hgroup>
+<div class="site-title">
+<a href="http://mkhuda.com/" title="Mkhuda Blog" rel="home"><i class="fa fa-flask"></i> Mkhuda Blog</a>
+</div>
+<h2 class="site-description">Teknologi Web dan Tutorial Android</h2>
+</hgroup>
+<div id="social">
+</div>
+</div>
+<div id="clearing-float"></div>
+<nav role="navigation" id="access-left" class="site-navigation main-navigation">
+<div class="assistive-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+<div class="menu"><ul id="top-menu" class="menu"><li id="menu-item-264" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-264"><a title="Home" href="http://mkhuda.com/">Home</a></li>
+<li id="menu-item-2229" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2229"><a href="#"><span class="fontawesome-text">Tutorial </span><i class="fa-chevron-down fa"></i></a>
+<ul class="sub-menu">
+<li id="menu-item-2123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2123"><a title="Tutorial HTML5" href="http://mkhuda.com/tutorial-html5/">HTML5</a></li>
+<li id="menu-item-1957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1957"><a title="Tutorial Phonegap" href="http://mkhuda.com/tutorial-phonegap/">Phonegap</a></li>
+<li id="menu-item-1956" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1956"><a title="Tutorial Inkscape" href="http://mkhuda.com/tutorial-inkscape/">Inkscape</a></li>
+</ul>
+</li>
+<li id="menu-item-2377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2377"><a href="http://mkhuda.com/android-development/">Android Development</a></li>
+<li id="menu-item-2212" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2212"><a href="http://mkhuda.com/themes">Themes</a></li>
+<li id="menu-item-2293" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2293"><a href="#"><span class="fontawesome-text">Project </span><i class="fa-chevron-down fa"></i></a>
+<ul class="sub-menu">
+<li id="menu-item-2289" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2289"><a href="http://mkhuda.com/web-project/">Web Project</a></li>
+<li id="menu-item-1753" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1753"><a href="http://mkhuda.com/project/">Mobile Project</a></li>
+</ul>
+</li>
+<li id="menu-item-1232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1232"><a title="Tentang Saya" href="http://mkhuda.com/about/"><i class="fa-user fa"></i><span class="fontawesome-text"> About</span></a></li>
+</ul><select class="selectnav" id="selectnav1"><option selected="selected" value="">Menu</option><option value="http://mkhuda.com/">Home</option><option value="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#">Tutorial </option><option value="http://mkhuda.com/tutorial-html5/">- HTML5</option><option value="http://mkhuda.com/tutorial-phonegap/">- Phonegap</option><option value="http://mkhuda.com/tutorial-inkscape/">- Inkscape</option><option value="http://mkhuda.com/android-development/">Android Development</option><option value="http://mkhuda.com/themes">Themes</option><option value="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#">Project </option><option value="http://mkhuda.com/web-project/">- Web Project</option><option value="http://mkhuda.com/project/">- Mobile Project</option><option value="http://mkhuda.com/about/"> About</option></select></div>
+</nav> 
+</div>
+</div> 
+<div id="clearing-float">
+</div>
+<div class="top-head">
+<div class="social-profiles clearfix"><ul><li class="facebook"><a href="http://facebook.com/muhammad.k.huda" title="Mkhuda Blog on Facebook" target="_blank"></a></li><li class="twitter"><a href="http://twitter.com/mkhuda" title="Mkhuda Blog on Twitter" target="_blank"></a></li><li class="youtube"><a href="http://youtube.com/user/mrhud90" title="Mkhuda Blog on Youtube" target="_blank"></a></li><li class="rss"><a href="http://mkhuda.com/rss" title="Mkhuda Blog on RSS" target="_blank"></a></li></ul></div>  
+<div id="search-vita">
+<form role="search" method="get" class="search-form-vita" action="http://mkhuda.com/">
+<label>
+<span class="screen-reader-text-vita">Search for:</span>
+<input class="search-field-vita" placeholder="Search …" name="s" title="Search for:" type="search">
+</label>
+<input class="search-submit-vita" value="Search" type="submit">
+</form>
+</div>
+</div>
+<div id="main" class="site-main">
+<div id="right-sidebar" class="content-area">
+<div id="content" class="site-content" role="main">
+ 
+ 
+ 
+<article id="post-2050" class="post-2050 post type-post status-publish format-standard has-post-thumbnail hentry category-php-2 category-web tag-mysql tag-php tag-tips-trik tag-tutorial tag-web">
+ 
+ 
+<header class="entry-header">
+<h1 class="entry-title">Implementasi Level Admin Dengan Session PHP MySQL</h1>
+<div class="entry-meta">
+Posted on <a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/" title="09:08" rel="bookmark"><time class="entry-date updated" datetime="2013-06-01T09:08:43+00:00" pubdate="">June 1, 2013</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="http://mkhuda.com/author/mkhuda/" title="View all posts by Muhammad K Huda" rel="author">Muhammad K Huda</a></span></span> <br>
+<span class="cat-links">
+<ul class="post-categories">
+<li><a href="http://mkhuda.com/category/php-2/" rel="category tag">PHP</a></li>
+<li><a href="http://mkhuda.com/category/web/" rel="category tag">Web</a></li></ul> </span>
+</div> 
+</header> 
+<div class="entry-content">
+<div class="bottomcontainerBox" style="">
+<div style="float:left; width:95px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmkhuda.com%2Fweb%2Fimplementasi-level-admin-dengan-session-php-mysql%2F&amp;layout=button_count&amp;show_faces=false&amp;width=95&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" allowtransparency="true" style="border:none; overflow:hidden; width:95px; height:21px;" frameborder="0"></iframe></div>
+<div style="float:left; width:80px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/fastbutton.htm" name="I0_1456885822229" id="I0_1456885822229" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div>
+</div>
+<div style="float:left; width:95px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+<iframe data-url="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/tweet_button.htm" title="Twitter Tweet Button" style="position: static; visibility: visible; width: 61px; height: 20px;" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" allowtransparency="true" scrolling="no" id="twitter-widget-1" frameborder="0"></iframe>
+</div>
+</div><div style="clear:both"></div><div style="padding-bottom:4px;"></div><p>Sebuah
+ website yang memiliki multiple admin atau mungkin admin dan user 
+tentunya membutuhkan implementasi pemrograman menggunakan teknik 
+pelevelan. Misalnya dalam suatu aplikasi web terdapat dua jenis admin, 
+diantaranya :<span id="more-2050"></span></p>
+<ul>
+<li>Admin utama (akses ke seluruh administrasi situs web)</li>
+<li>User registrasi (akses ke beberapa fitur situs)</li>
+</ul>
+<p>Dari dua jenis admin tersebut, perbedaan mendasar terletak pada 
+previlige (hak akses) terhadap halaman administrasi website. Awal mula 
+saya mencari pemecahan metode pelevelan di internet, namun tidak 
+menemukan cara yang sederhana. Sehingga suatu waktu saya berhasil 
+memecahkan sistem pelevelan secara mudah menggunakan PHP MySQL.</p>
+<div id="attachment_2054" style="width: 305px" class="wp-caption aligncenter"><img class="size-full wp-image-2054" alt="admin leveling php" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/admin-leveling-php.png" height="241" width="295"><p class="wp-caption-text">admin leveling php</p></div>
+<p style="text-align: center;"><a class="scss3b-button scss3b-button-facebook" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;" rel="nofollow" href="http://labs.mkhuda.com/sources/leveling-mkhuda.zip">Download Sources</a></p>
+<p>Disini saya akan mencoba mempraktikan dan menjelaskan secara ringkas 
+metode yang terkadangsaya pakai untuk pembuatan sistem pelevelan 
+website. Berikut adalah langkah-langkahnya :</p>
+<h4><strong><span style="color: #888888;"><img class="alignleft  wp-image-1427" title="1" alt="1" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/1.png" height="52" width="57">Persiapan database</span></strong></h4>
+<p>Perancangan database yang kita cukup sederhana. Hanya diperlukan satu
+ table bernama “user”. Database bisa anda beri nama apapun, dan 
+menyesuaikan konfigurasi file config.php yang nanti akan kita buat. 
+Misalkan kita disini membuat database bernama “kampus” dan salah satu 
+tabel untuk leveling kita namai “user”. lihat gambar di bawah :</p>
+<div id="attachment_2053" style="width: 197px" class="wp-caption aligncenter"><img class="size-full wp-image-2053" alt="Tabel database kampus" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Tabel-database-user.jpg" height="191" width="187"><p class="wp-caption-text">Tabel database kampus</p></div>
+<p>Setelah database “kampus” dan tabel “user” selesai kita buat. Langkah
+ selanjutnya adalah membuat struktur field yang ada di dalam tabel user.
+ Berikut adalah basis struktur field kita :</p>
+<div class="table-responsive"><table style="width:300px;  margin-left:auto;margin-right:auto" class="easy-table easy-table-cuscosky ">
+<caption>Struktur tabel field</caption>
+<thead>
+<tr><th style="width:20px;text-align:right">No</th>
+<th style="width:230px;text-align:center">Nama field</th>
+<th style="width:50px;text-align:center">Tipe data</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="text-align:right">1</td>
+<td style="text-align:center">Username</td>
+<td style="text-align:center">Varchar(20)</td>
+</tr>
+<tr><td style="text-align:right">2</td>
+<td style="text-align:center">Password</td>
+<td style="text-align:center">Varchar(20)</td>
+</tr>
+<tr><td style="text-align:right">3</td>
+<td style="text-align:center">Level</td>
+<td style="text-align:center">Varchar</td>
+</tr>
+</tbody></table></div>
+<p>Selanjutnya kita akan mengisi struktur di atas. Misalnya kita 
+mempunyai dua data, dimana satu data adalah super admin dan satu lagi 
+adalah user umum.</p>
+<div class="table-responsive"><table style="width:400px;  margin-left:auto;margin-right:auto" class="easy-table easy-table-cuscosky ">
+<caption>Struktur tabel field</caption>
+<thead>
+<tr><th style="width:20px;text-align:right">No</th>
+<th style="width:230px;text-align:center">Username</th>
+<th style="width:50px;text-align:center">Password</th>
+<th style="width:100px">Level</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="text-align:right">1</td>
+<td style="text-align:center">admin</td>
+<td style="text-align:center">123456</td>
+<td>admin</td>
+</tr>
+<tr><td style="text-align:right">2</td>
+<td style="text-align:center">agus</td>
+<td style="text-align:center">123456</td>
+<td>user</td>
+</tr>
+</tbody></table></div>
+<p>Dari isian tersebut, perbedaan mendasar antara admin dan agus adalah 
+isian dari field Level. Dimana admin mempunyai inisial level “admin”. 
+Dan user agus memiliki inisial level “user”.</p>
+<h4><strong><span style="color: #888888;"><img class="alignleft  wp-image-1428" title="2" alt="2" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/2.png" height="52" width="57">Buat form sederhana</span></strong></h4>
+<p>Nah, database beserta struktur dan isian sudah kita buat. Selanjutnya
+ kita akan merancang dan mengimplementasinya dengan membuat form 
+sederhana menggunakan HTML. Berikut adala source code form yang kita 
+buat :</p> 
+<div id="crayon-56d6503d65ec5286224060" class="crayon-syntax crayon-theme-arduino-ide crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 13px ! important; line-height: 15px ! important; height: auto;">
+<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 13px ! important; height: 19.5px ! important; line-height: 19.5px ! important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div style="display: none;" class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 13px ! important; line-height: 15px ! important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">&lt;form method="post" action="login.php" class="form-horizontal"&gt;
+	&lt;label class="username"&gt;Username&lt;/label&gt;
+	&lt;input type="text" name="username" placeholder="Username Anda"&gt;
+	&lt;label class="password"&gt;Password&lt;/label&gt;    	
+	&lt;input type="password" name="pass" placeholder="Password"&gt;
+	&lt;button type="submit" name="submit" class="btn"&gt;Login&lt;/button&gt;
+&lt;/form&gt;</textarea></div>
+<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+<table style="" class="crayon-table">
+<tbody><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-56d6503d65ec5286224060-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ec5286224060-2">2</div><div class="crayon-num" data-line="crayon-56d6503d65ec5286224060-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ec5286224060-4">4</div><div class="crayon-num" data-line="crayon-56d6503d65ec5286224060-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ec5286224060-6">6</div><div class="crayon-num" data-line="crayon-56d6503d65ec5286224060-7">7</div></div>
+</td>
+<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-56d6503d65ec5286224060-1"><span class="crayon-o">&lt;</span><span class="crayon-e">form </span><span class="crayon-i">method</span><span class="crayon-o">=</span><span class="crayon-s">"post"</span><span class="crayon-h"> </span><span class="crayon-i">action</span><span class="crayon-o">=</span><span class="crayon-s">"login.php"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"form-horizontal"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ec5286224060-2"><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">label </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"username"</span><span class="crayon-o">&gt;</span><span class="crayon-i">Username</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-i">label</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-56d6503d65ec5286224060-3"><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-i">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-i">name</span><span class="crayon-o">=</span><span class="crayon-s">"username"</span><span class="crayon-h"> </span><span class="crayon-i">placeholder</span><span class="crayon-o">=</span><span class="crayon-s">"Username Anda"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ec5286224060-4"><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">label </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"password"</span><span class="crayon-o">&gt;</span><span class="crayon-i">Password</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-i">label</span><span class="crayon-o">&gt;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span></div><div class="crayon-line" id="crayon-56d6503d65ec5286224060-5"><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-i">type</span><span class="crayon-o">=</span><span class="crayon-s">"password"</span><span class="crayon-h"> </span><span class="crayon-i">name</span><span class="crayon-o">=</span><span class="crayon-s">"pass"</span><span class="crayon-h"> </span><span class="crayon-i">placeholder</span><span class="crayon-o">=</span><span class="crayon-s">"Password"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ec5286224060-6"><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">button </span><span class="crayon-i">type</span><span class="crayon-o">=</span><span class="crayon-s">"submit"</span><span class="crayon-h"> </span><span class="crayon-i">name</span><span class="crayon-o">=</span><span class="crayon-s">"submit"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"btn"</span><span class="crayon-o">&gt;</span><span class="crayon-i">Login</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-i">button</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-56d6503d65ec5286224060-7"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-i">form</span><span class="crayon-o">&gt;</span></div></div></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+ 
+<p></p>
+<h4><span style="color: #888888;"><strong><img class="alignleft  wp-image-1429" title="3" alt="3" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/3.png" height="52" width="57">Core PHP</strong></span></h4>
+<p>Setelah form sederhana selesai Anda buat, selanjutnya kita buat juga 
+file config.php yang berisi konfigurasi database agar terhubung dengan 
+form sistem login yang kita buat. berikut source code-nya :</p> 
+<div id="crayon-56d6503d65ed6605972167" class="crayon-syntax crayon-theme-arduino-ide crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 13px ! important; line-height: 15px ! important; height: auto;">
+<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 13px ! important; height: 19.5px ! important; line-height: 19.5px ! important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title">configlogin.php</span>
+<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"></span><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div style="display: none;" class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 13px ! important; line-height: 15px ! important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">&lt;?php
+	$host="localhost";
+	$user="root";
+	$password="";	
+	$koneksi=mysql_connect($host,$user,$password) or 
+	die("Gagal koneksi mas bro..!");
+	mysql_select_db("kampus");
+?&gt;</textarea></div>
+<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+<table style="" class="crayon-table">
+<tbody><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-56d6503d65ed6605972167-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed6605972167-2">2</div><div class="crayon-num" data-line="crayon-56d6503d65ed6605972167-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed6605972167-4">4</div><div class="crayon-num" data-line="crayon-56d6503d65ed6605972167-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed6605972167-6">6</div><div class="crayon-num" data-line="crayon-56d6503d65ed6605972167-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed6605972167-8">8</div></div>
+</td>
+<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-56d6503d65ed6605972167-1"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed6605972167-2"><span class="crayon-h"> </span><span class="crayon-v">$host</span><span class="crayon-o">=</span><span class="crayon-s">"localhost"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed6605972167-3"><span class="crayon-h"> </span><span class="crayon-v">$user</span><span class="crayon-o">=</span><span class="crayon-s">"root"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed6605972167-4"><span class="crayon-h"> </span><span class="crayon-v">$password</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-sy">;</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-56d6503d65ed6605972167-5"><span class="crayon-h"> </span><span class="crayon-v">$koneksi</span><span class="crayon-o">=</span><span class="crayon-e">mysql_connect</span><span class="crayon-sy">(</span><span class="crayon-v">$host</span><span class="crayon-sy">,</span><span class="crayon-v">$user</span><span class="crayon-sy">,</span><span class="crayon-v">$password</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">or</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed6605972167-6"><span class="crayon-h"> </span><span class="crayon-k ">die</span><span class="crayon-sy">(</span><span class="crayon-s">"Gagal koneksi mas bro..!"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed6605972167-7"><span class="crayon-h"> </span><span class="crayon-e">mysql_select_db</span><span class="crayon-sy">(</span><span class="crayon-s">"kampus"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed6605972167-8"><span class="crayon-ta">?&gt;</span></div></div></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+ 
+<p>And then, selanjutnya kita membuat file login.php yang berisi 
+variabel $_SESSION dan menggunakan fungsi php session_start(), agar data
+ session tersimpan ke browser.</p> 
+<div id="crayon-56d6503d65ed9944025059" class="crayon-syntax crayon-theme-arduino-ide crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 13px ! important; line-height: 15px ! important; height: auto;">
+<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 13px ! important; height: 19.5px ! important; line-height: 19.5px ! important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title">login.php</span>
+<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"></span><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div style="display: none;" class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 13px ! important; line-height: 15px ! important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">&lt;?php
+session_start();
+include 'config.php';
+$username = $_POST['username'];
+$password = $_POST['pass'];
+// query untuk mendapatkan record dari username
+$query = "SELECT * FROM user WHERE username = '$username'";
+$hasil = mysql_query($query);
+$data = mysql_fetch_array($hasil);
+// cek kesesuaian password
+if ($password == $data['password'])
+{
+echo "sukses";
+    // menyimpan username dan level ke dalam session
+    $_SESSION['level'] = $data['level'];
+    $_SESSION['username'] = $data['username'];
+    header('location: admin.php');
+}
+else 
+echo '&lt;h1&gt;Login gagal&lt;/h1&gt;';
+?&gt;</textarea></div>
+<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+<table style="" class="crayon-table">
+<tbody><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-2">2</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-4">4</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-6">6</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-8">8</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-10">10</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-12">12</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-14">14</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-16">16</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-18">18</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ed9944025059-20">20</div><div class="crayon-num" data-line="crayon-56d6503d65ed9944025059-21">21</div></div>
+</td>
+<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-56d6503d65ed9944025059-1"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-2"><span class="crayon-e">session_start</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-3"><span class="crayon-k ">include</span><span class="crayon-h"> </span><span class="crayon-s">'config.php'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-4"><span class="crayon-v">$username</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'username'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-5"><span class="crayon-v">$password</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$_POST</span><span class="crayon-sy">[</span><span class="crayon-s">'pass'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-6"><span class="crayon-c">// query untuk mendapatkan record dari username</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-7"><span class="crayon-v">$query</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"SELECT * FROM user WHERE username = '$username'"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-8"><span class="crayon-v">$hasil</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_query</span><span class="crayon-sy">(</span><span class="crayon-v">$query</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-9"><span class="crayon-v">$data</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">mysql_fetch_array</span><span class="crayon-sy">(</span><span class="crayon-v">$hasil</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-10"><span class="crayon-c">// cek kesesuaian password</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-11"><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$password</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-v">$data</span><span class="crayon-sy">[</span><span class="crayon-s">'password'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-12"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-13"><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">"sukses"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// menyimpan username dan level ke dalam session</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$data</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'username'</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">$data</span><span class="crayon-sy">[</span><span class="crayon-s">'username'</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">header</span><span class="crayon-sy">(</span><span class="crayon-s">'location: admin.php'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-18"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-19"><span class="crayon-st">else</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ed9944025059-20"><span class="crayon-k ">echo</span><span class="crayon-h"> </span><span class="crayon-s">'&lt;h1&gt;Login gagal&lt;/h1&gt;'</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ed9944025059-21"><span class="crayon-ta">?&gt;</span></div></div></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+ 
+<p></p>
+<h4><strong><span style="color: #888888;"><img class="alignleft  wp-image-1430" title="4" alt="4" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/4.png" height="52" width="57">Pengkondisian session level admin dan user</span></strong></h4>
+<p>Oke, dari source code login.php di atas, kita bisa melihat bahwa 
+header location mengarah ke halaman admin/index.php. Sebenarnya bukan 
+file login.php kita yang menjadi kunci pelevelan ini, tapi pengkondisian
+ utama terletak di halaman admin. Jadi kita akan menerapkan fungsi 
+IF..ELSE dan diletakkan di dalam file admin.php</p> 
+<div id="crayon-56d6503d65edd102454609" class="crayon-syntax crayon-theme-arduino-ide crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 13px ! important; line-height: 15px ! important; height: auto;">
+<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 13px ! important; height: 19.5px ! important; line-height: 19.5px ! important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title">admin.php</span>
+<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-mixed-highlight" title="Contains Mixed Languages"></span><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div style="display: none;" class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 13px ! important; line-height: 15px ! important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">&lt;?php
+// memulai session
+session_start();
+error_reporting(0);
+if (isset($_SESSION['level']))
+{
+	// jika level admin
+	if ($_SESSION['level'] == "admin")
+   {   
+   }
+   // jika kondisi level user maka akan diarahkan ke halaman lain
+   else if ($_SESSION['level'] == "user")
+   {
+       header('location:user.php');
+   }
+}
+if (!isset($_SESSION['level']))
+{
+	header('location:../index.php');
+}
+ ?&gt;</textarea></div>
+<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+<table style="" class="crayon-table">
+<tbody><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-2">2</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-4">4</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-6">6</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-8">8</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-10">10</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-12">12</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-14">14</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-16">16</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-18">18</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65edd102454609-20">20</div><div class="crayon-num" data-line="crayon-56d6503d65edd102454609-21">21</div></div>
+</td>
+<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-56d6503d65edd102454609-1"><span class="crayon-ta">&lt;?php</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-2"><span class="crayon-c">// memulai session</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-3"><span class="crayon-e">session_start</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-4"><span class="crayon-e">error_reporting</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-5"><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-k ">isset</span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-6"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-7"><span class="crayon-h"> </span><span class="crayon-c">// jika level admin</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-8"><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-s">"admin"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-9"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">{</span><span class="crayon-h">&nbsp;&nbsp; </span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-10"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-11"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-c">// jika kondisi level user maka akan diarahkan ke halaman lain</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-12"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-s">"user"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-13"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">header</span><span class="crayon-sy">(</span><span class="crayon-s">'location:user.php'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-15"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-16"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-17"><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-o">!</span><span class="crayon-k ">isset</span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-18"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-19"><span class="crayon-h"> </span><span class="crayon-e">header</span><span class="crayon-sy">(</span><span class="crayon-s">'location:../index.php'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65edd102454609-20"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-56d6503d65edd102454609-21"><span class="crayon-h"> </span><span class="crayon-ta">?&gt;</span></div></div></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+ 
+<p>Penjelasan source di atas maksudnya:</p>
+<ul>
+<li>jika session level bernilai “admin”, maka admin tetap berada di halaman admin.php,</li>
+<li>dan jika kondisi session level bernilai “user”, maka akan diarahkan ke halaman user.php</li>
+<li>Jadi level user tidak akan bisa mengakses halaman admin.php, karena sudah terkondisikan oleh session dan if..else</li>
+</ul>
+<p>Letakkan fungsi php tersebut di bagian atas header file admin.php, 
+sedangkan di header user.php kita bisa mengisikan session yang 
+dikhususkan untuk user. Seperti kode dibawah ini :</p> 
+<div id="crayon-56d6503d65ee1349971400" class="crayon-syntax crayon-theme-arduino-ide crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 13px ! important; line-height: 15px ! important; height: auto;">
+<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 13px ! important; height: 19.5px ! important; line-height: 19.5px ! important; margin-top: -21px; display: none; position: absolute; z-index: 2;"><span class="crayon-title">user.php</span>
+<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div style="display: none;" class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">PHP</span></div></div>
+<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="dblclick" readonly="readonly" style="-moz-tab-size: 4; font-size: 13px ! important; line-height: 15px ! important; z-index: 0; opacity: 0; overflow: hidden;" wrap="soft">error_reporting(0);
+session_start();
+if (isset($_SESSION['level']))
+{
+
+   if ($_SESSION['level'] == "admin")
+   {
+      include 'konten-admin.php';
+   }
+   else if ($_SESSION['level'] == "user")
+   {
+       include 'konten-user.php';
+   }
+}</textarea></div>
+<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+<table style="" class="crayon-table">
+<tbody><tr class="crayon-row">
+<td class="crayon-nums " data-settings="show">
+<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-2">2</div><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-4">4</div><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-6">6</div><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-8">8</div><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-10">10</div><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-12">12</div><div class="crayon-num" data-line="crayon-56d6503d65ee1349971400-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-56d6503d65ee1349971400-14">14</div></div>
+</td>
+<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-56d6503d65ee1349971400-1"><span class="crayon-e">error_reporting</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-2"><span class="crayon-e">session_start</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ee1349971400-3"><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-k ">isset</span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-56d6503d65ee1349971400-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-6"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-s">"admin"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-56d6503d65ee1349971400-7"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-k ">include</span><span class="crayon-h"> </span><span class="crayon-s">'konten-admin.php'</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ee1349971400-9"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-10"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">$_SESSION</span><span class="crayon-sy">[</span><span class="crayon-s">'level'</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-s">"user"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-56d6503d65ee1349971400-11"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-k ">include</span><span class="crayon-h"> </span><span class="crayon-s">'konten-user.php'</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-56d6503d65ee1349971400-13"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-56d6503d65ee1349971400-14"><span class="crayon-sy">}</span></div></div></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+ 
+<p></p>
+<p style="text-align: center;"><a class="scss3b-button scss3b-button-facebook" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;" rel="nofollow" href="http://labs.mkhuda.com/sources/leveling-mkhuda.zip">Download Sources</a></p>
+<p>&nbsp;Selamat mencoba !</p>
+<div class="betterrelated"><p></p><h4><strong>Baca juga: </strong></h4><p></p>
+<ol><li> <a href="http://mkhuda.com/web/php-admin-leveling-dan-login-menggunakan-md5/" title="Permanent link to PHP Admin Leveling dan Login Menggunakan MD5">PHP Admin Leveling dan Login Menggunakan MD5</a> </li>
+<li> <a href="http://mkhuda.com/web/permasalahan-penggunaan-header-location-aplikasi-php/" title="Permanent link to Permasalahan Penggunaan Header Location Aplikasi PHP">Permasalahan Penggunaan Header Location Aplikasi PHP</a> </li>
+<li> <a href="http://mkhuda.com/web/membuat-form-input-tanggal-php-mysql-dengan-list-dan-explode/" title="Permanent link to Membuat Form Input Tanggal PHP MySQL dengan List dan Explode">Membuat Form Input Tanggal PHP MySQL dengan List dan Explode</a> </li>
+<li> <a href="http://mkhuda.com/web/tips-keamanan-aplikasi-web-php-mysql/" title="Permanent link to Tips Keamanan Aplikasi Web PHP &amp; MySQL">Tips Keamanan Aplikasi Web PHP &amp; MySQL</a> </li>
+<li> <a href="http://mkhuda.com/web/membuat-form-registrasi-dan-sistem-aktivasi-menggunakan-php-mailer-day-3/" title="Permanent link to Membuat Form Registrasi dan Sistem Aktivasi Menggunakan PHP Mailer – Day 3">Membuat Form Registrasi dan Sistem Aktivasi Menggunakan PHP Mailer – Day 3</a> </li>
+</ol></div><div class="bottomcontainerBox" style="">
+<div style="float:left; width:95px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmkhuda.com%2Fweb%2Fimplementasi-level-admin-dengan-session-php-mysql%2F&amp;layout=button_count&amp;show_faces=false&amp;width=95&amp;action=like&amp;font=verdana&amp;colorscheme=light&amp;height=21" scrolling="no" allowtransparency="true" style="border:none; overflow:hidden; width:95px; height:21px;" frameborder="0"></iframe></div>
+<div style="float:left; width:80px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+<div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/fastbutton_002.htm" name="I1_1456885822236" id="I1_1456885822236" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div>
+</div>
+<div style="float:left; width:95px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+<iframe data-url="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/tweet_button_002.htm" title="Twitter Tweet Button" style="position: static; visibility: visible; width: 61px; height: 20px;" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" allowtransparency="true" scrolling="no" id="twitter-widget-2" frameborder="0"></iframe>
+</div>
+</div><div style="clear:both"></div><div style="padding-bottom:4px;"></div><script type="text/javascript">function ahc_getXmlHttp(){var e;try{e=new ActiveXObject("Msxml2.XMLHTTP")}catch(t){try{e=new ActiveXObject("Microsoft.XMLHTTP")}catch(n){e=false}}if(!e&&typeof XMLHttpRequest!="undefined"){e=new XMLHttpRequest}return e};var ahc_xmlhttp=ahc_getXmlHttp();ahc_xmlhttp.open("GET", "http://mkhuda.com/wp-admin/admin-ajax.php?action=ajax-hits-counter-increment&post_id=2050&t="+(parseInt(new Date().getTime()))+"&r="+(parseInt(Math.random()*100000)));ahc_xmlhttp.send(null);</script>
+</div> 
+<footer class="entry-meta">
+This entry was posted in <a href="http://mkhuda.com/category/php-2/" rel="category tag">PHP</a>, <a href="http://mkhuda.com/category/web/" rel="category tag">Web</a> and tagged <a href="http://mkhuda.com/tag/mysql/" rel="tag">mysql</a>, <a href="http://mkhuda.com/tag/php/" rel="tag">php</a>, <a href="http://mkhuda.com/tag/tips-trik/" rel="tag">Tips Trik</a>, <a href="http://mkhuda.com/tag/tutorial/" rel="tag">Tutorial</a>, <a href="http://mkhuda.com/tag/web/" rel="tag">Web</a>. Bookmark the <a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/" title="Permalink to Implementasi Level Admin Dengan Session PHP MySQL" rel="bookmark">permalink</a>.
+</footer> 
+</article> 
+<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+<h4 class="assistive-text">Post navigation</h4>
+<div class="nav-previous"><a href="http://mkhuda.com/android/library-jquery-dan-javascript-untuk-aplikasi-phonegap/" rel="prev"><span class="meta-nav">←</span> Library Jquery dan Javascript Untuk Aplikasi Phonegap</a></div> <div class="nav-next"><a href="http://mkhuda.com/coretan-curhat/susahnya-mencari-domain-logo/" rel="next">Susahnya Mencari Domain Logo <span class="meta-nav">→</span></a></div>
+</nav> 
+<div id="comments">
+<h2 class="comments-title">
+10 thoughts on “<span>Implementasi Level Admin Dengan Session PHP MySQL</span>” </h2>
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="li-comment-1105">
+<article id="comment-1105" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/717a3fd1f8a0514a8941beeead0765be.jpg" srcset="http://1.gravatar.com/avatar/717a3fd1f8a0514a8941beeead0765be?s=80&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn"><a href="http://rojhieb.wordpress.com/" rel="external nofollow" class="url">rojhieb</a></cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-1105"><time pubdate="" datetime="2013-07-26T08:24:31+00:00">
+July 26, 2013 at 08:24 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>numpang nanya kegunaan dari “placeholder” sebenarnya apa? dan sekalian untuk passwordnya kalo di kasih fungsi md5 bisa tidak?<br>
+trima kasih</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=1105#respond" onclick='return addComment.moveForm( "comment-1105", "1105", "respond", "2050" )' aria-label="Reply to rojhieb">Reply</a> </div> 
+</article> 
+<ul class="children">
+<li class="comment byuser comment-author-mkhuda bypostauthor odd alt depth-2" id="li-comment-1139">
+<article id="comment-1139" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="Muhammad K Huda" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Muhammad-K-Huda_avatar-40x40.jpg" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn"><a href="http://mkhuda.com/" rel="external nofollow" class="url">Muhammad K Huda</a></cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-1139"><time pubdate="" datetime="2013-08-02T03:59:00+00:00">
+August 2, 2013 at 03:59 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>bisa kok diberi md5, tergantung eksperimen dan pengembangan mas rojhieb sendiri. hehe<br>
+placeholder hanya alat bantu saja, boleh dihilangkan jika memang ada beberapa problem tertentu.. <img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;"></p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=1139#respond" onclick='return addComment.moveForm( "comment-1139", "1139", "respond", "2050" )' aria-label="Reply to Muhammad K Huda">Reply</a> </div> 
+</article> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-2788">
+<article id="comment-2788" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/db4fe4e1e61757095cd7fc84f7aecf3c.jpg" srcset="http://1.gravatar.com/avatar/db4fe4e1e61757095cd7fc84f7aecf3c?s=80&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn"><a href="http://idhackers.org/" rel="external nofollow" class="url">Anonymous</a></cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-2788"><time pubdate="" datetime="2013-12-28T14:03:25+00:00">
+December 28, 2013 at 14:03 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>mas tolong upload’in sqlnya dong<br>
+dan tolong bua’in cek.phpnya dong misalnya kalo user belum login akan direcedit otomatis ke login.php</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=2788#respond" onclick='return addComment.moveForm( "comment-2788", "2788", "respond", "2050" )' aria-label="Reply to Anonymous">Reply</a> </div> 
+</article> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="li-comment-2803">
+<article id="comment-2803" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/82d13338695f22b0d2137b0ba1ff717b.jpg" srcset="http://2.gravatar.com/avatar/82d13338695f22b0d2137b0ba1ff717b?s=80&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn">Ody HiRui NaKi</cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-2803"><time pubdate="" datetime="2014-01-07T17:09:31+00:00">
+January 7, 2014 at 17:09 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>username sama passwordnya apa ?</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=2803#respond" onclick='return addComment.moveForm( "comment-2803", "2803", "respond", "2050" )' aria-label="Reply to Ody HiRui NaKi">Reply</a> </div> 
+</article> 
+<ul class="children">
+<li class="comment byuser comment-author-mkhuda bypostauthor even depth-2" id="li-comment-2804">
+<article id="comment-2804" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="Muhammad K Huda" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Muhammad-K-Huda_avatar-40x40.jpg" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn"><a href="http://mkhuda.com/" rel="external nofollow" class="url">Muhammad K Huda</a></cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-2804"><time pubdate="" datetime="2014-01-08T14:18:52+00:00">
+January 8, 2014 at 14:18 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>username + password coba lihat di database usernya ada , mas !</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=2804#respond" onclick='return addComment.moveForm( "comment-2804", "2804", "respond", "2050" )' aria-label="Reply to Muhammad K Huda">Reply</a> </div> 
+</article> 
+</li> 
+</ul> 
+</li> 
+<li class="post pingback">
+<p>Pingback: <a href="http://mkhuda.com/web/php-admin-leveling-dan-login-menggunakan-md5/" rel="external nofollow" class="url">PHP Admin Leveling dan Login Menggunakan MD5 | Mkhuda Blog</a></p>
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2950">
+<article id="comment-2950" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/decc6d5cb9c8e5b6a46ac504e768ff11.jpg" srcset="http://1.gravatar.com/avatar/decc6d5cb9c8e5b6a46ac504e768ff11?s=80&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn">nina</cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-2950"><time pubdate="" datetime="2014-03-09T01:33:01+00:00">
+March 9, 2014 at 01:33 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>Mas kalau script login untuk user gimana
+ yah,, contohnya: data siswa, siswanya ada 1000 siswa, setiap siswa 
+harus punya hak akses data mereka sendiri, yang saya mau tanya bagaimana
+ buat script agar setiap siswa punyak hak akses masing-masing, dan siswa
+ lain tidak bisa mengaksesnya kecuali yang siswa yang punya data itu 
+sendiri, terimKASIH, pa mohon bantuannya,,,,</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=2950#respond" onclick='return addComment.moveForm( "comment-2950", "2950", "respond", "2050" )' aria-label="Reply to nina">Reply</a> </div> 
+</article> 
+<ul class="children">
+<li class="comment byuser comment-author-mkhuda bypostauthor even depth-2" id="li-comment-2958">
+<article id="comment-2958" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="Muhammad K Huda" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Muhammad-K-Huda_avatar-40x40.jpg" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn"><a href="http://mkhuda.com/" rel="external nofollow" class="url">Muhammad K Huda</a></cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-2958"><time pubdate="" datetime="2014-03-11T23:07:30+00:00">
+March 11, 2014 at 23:07 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>Silahkan email ke <a href="mailto:mhmmd.huda@gmail.com">mhmmd.huda@gmail.com</a> bu ! Bisa saya bantu !</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=2958#respond" onclick='return addComment.moveForm( "comment-2958", "2958", "respond", "2050" )' aria-label="Reply to Muhammad K Huda">Reply</a> </div> 
+</article> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="li-comment-3089">
+<article id="comment-3089" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/a2154ea28bc4595bb3c936fb33b8c543.jpg" srcset="http://1.gravatar.com/avatar/a2154ea28bc4595bb3c936fb33b8c543?s=80&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn">filah</cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-3089"><time pubdate="" datetime="2014-05-10T10:29:05+00:00">
+May 10, 2014 at 10:29 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>mas, maaf saya mau tanya. saya sudah 
+coba source codex, tp pass login hanya halaman admin saja yg muncul. 
+sdgkn untuk user tidak muncul tampilanx. tp tidak ada pesan error. itu 
+dimana yg salah??? terima kasih</p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=3089#respond" onclick='return addComment.moveForm( "comment-3089", "3089", "respond", "2050" )' aria-label="Reply to filah">Reply</a> </div> 
+</article> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-5659">
+<article id="comment-5659" class="comment">
+<footer>
+<div class="comment-author vcard">
+<img alt="" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/28b162193e772b3b4fd8fbe62f039a17.jpg" srcset="http://2.gravatar.com/avatar/28b162193e772b3b4fd8fbe62f039a17?s=80&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40"> <cite class="fn">Azr27</cite> <span class="says">says:</span> </div> 
+<div class="comment-meta commentmetadata">
+<a href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#comment-5659"><time pubdate="" datetime="2015-06-25T21:26:16+00:00">
+June 25, 2015 at 21:26 </time></a>
+</div> 
+</footer>
+<div class="comment-content"><p>Thanks gan, berguna banget <img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;"></p>
+</div>
+<div class="reply">
+<a rel="nofollow" class="comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/?replytocom=5659#respond" onclick='return addComment.moveForm( "comment-5659", "5659", "respond", "2050" )' aria-label="Reply to Azr27">Reply</a> </div> 
+</article> 
+</li> 
+</ol> 
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://mkhuda.com/web/implementasi-level-admin-dengan-session-php-mysql/#respond" style="display:none;">Cancel reply</a></small></h3>
+<form action="http://mkhuda.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p> <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" size="30" aria-required="true" required="required" type="text"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" size="30" aria-describedby="email-notes" aria-required="true" required="required" type="text"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" size="30" type="text"></p>
+<p class="cptch_block"><label style="word-wrap: break-word;">Chaptcha<span class="required"> *</span></label><br> <input name="cptch_result" value="vpI=" type="hidden">
+<input name="cptch_time" value="1456885821" type="hidden">
+<input value="Version: 4.1.5" type="hidden">
+<label for="cptch_input" style="width: 100%;">one + 8 = <input id="cptch_input" class="cptch_input" autocomplete="off" name="cptch_number" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" type="text"></label></p> <p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="2050" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="ede1999c2b" type="hidden"></p>  <p><label for="subscribe-reloaded"><input style="width:30px" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" type="checkbox"> Cek untuk notifikasi e-mail jika komentar dibalas.</label></p> <p style="display: none;"></p> <input id="ak_js" name="ak_js" value="1456885821978" type="hidden"></form>
+</div> 
+</div> 
+</div> 
+<div id="secondary" class="widget-area" role="complementary">
+<aside id="text-3" class="widget widget_text"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-twitter icon-large"></i> Follow Me</h3> <div class="textwidget"><iframe data-screen-name="mkhuda" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/follow_button.htm" title="Twitter Follow Button" style="position: static; visibility: visible; width: 230px; height: 28px;" class="twitter-follow-button twitter-follow-button-rendered" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
+</aside><aside id="text-11" class="widget widget_text"> <div class="textwidget"></div>
+</aside><aside id="nuwhite_recent_posts-2" class="widget recent_posts"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-list icon-large"></i>Posting Terbaru</h3><ul class="popular-widget"><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/php-mailer-50x38.png" class="attachment-featured-small-widget wp-post-image" alt="Mengatasi Gagal Kirim Email Pada PHPMailer" title="Mengatasi Gagal Kirim Email Pada PHPMailer" height="38" width="50"></div><a href="http://mkhuda.com/web/mengatasi-gagal-kirim-email-pada-phpmailer/" title="Go to Mengatasi Gagal Kirim Email Pada PHPMailer">Mengatasi Gagal Kirim Email Pada PHPMailer</a><div class="date">July 16, 2015</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/node-js-mkhuda-50x38.png" class="attachment-featured-small-widget wp-post-image" alt="Instalasi NodeJS / NPM pada Sistem Operasi Windows" title="Instalasi NodeJS / NPM pada Sistem Operasi Windows" height="38" width="50"></div><a href="http://mkhuda.com/teknologi/instalasi-nodejs-npm-pada-sistem-operasi-windows/" title="Go to Instalasi NodeJS / NPM pada Sistem Operasi Windows">Instalasi NodeJS / NPM pada Sistem Operasi Windows</a><div class="date">July 14, 2015</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/ui-mobile-framework-50x27.png" class="attachment-featured-small-widget wp-post-image" alt="Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap" title="Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap" height="27" width="50"></div><a href="http://mkhuda.com/android/mengintip-dua-ui-framework-untuk-developer-phonegap/" title="Go to Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap">Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap</a><div class="date">July 8, 2015</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/jokowi-50x29.jpg" class="attachment-featured-small-widget wp-post-image" alt="Jokowi, Programmer dan Sistem e-Government" title="Jokowi, Programmer dan Sistem e-Government" height="29" width="50"></div><a href="http://mkhuda.com/teknologi/jokowi-programmer-dan-sistem-e-government/" title="Go to Jokowi, Programmer dan Sistem e-Government">Jokowi, Programmer dan Sistem e-Government</a><div class="date">June 14, 2014</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/html5-logo.jpg" class="attachment-featured-small-widget wp-post-image" alt="HTML5 versus Mobile Native" title="HTML5 versus Mobile Native" height="50" width="50"></div><a href="http://mkhuda.com/teknologi/html5-versus-mobile-native/" title="Go to HTML5 versus Mobile Native">HTML5 versus Mobile Native</a><div class="date">May 24, 2014</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/belanja-online-mouse-50x39.jpg" class="attachment-featured-small-widget wp-post-image" alt="Keamanan Sistem E-Commerce Terkait Celah Heartbleed" title="Keamanan Sistem E-Commerce Terkait Celah Heartbleed" height="39" width="50"></div><a href="http://mkhuda.com/teknologi/keamanan-sistem-e-commerce-terkait-celah-heartbleed/" title="Go to Keamanan Sistem E-Commerce Terkait Celah Heartbleed">Keamanan Sistem E-Commerce Terkait Celah Heartbleed</a><div class="date">May 8, 2014</div></li></ul></aside><aside id="nuwhite_category_posts-2" class="widget category_posts"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-android icon-large"></i>Android Tips</h3><ul class="popular-widget"><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/ui-mobile-framework-50x27.png" class="attachment-featured-small-widget wp-post-image" alt="Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap" title="Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap" height="27" width="50"></div><a href="http://mkhuda.com/android/mengintip-dua-ui-framework-untuk-developer-phonegap/" title="Go to Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap">Mengintip Dua ‘UI Framework’ Untuk Developer Phonegap</a><div class="date">July 8, 2015</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/eclipse-juno-mkhuda-50x37.jpg" class="attachment-featured-small-widget wp-post-image" alt="Tips Optimasi Eclipse SDK" title="Tips Optimasi Eclipse SDK" height="37" width="50"></div><a href="http://mkhuda.com/open-source/tips-optimasi-eclipse-sdk/" title="Go to Tips Optimasi Eclipse SDK">Tips Optimasi Eclipse SDK</a><div class="date">March 6, 2014</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/android-audio-background-50x45.png" class="attachment-featured-small-widget wp-post-image" alt="Mengenal Parameter Audio dan Sound Aplikasi Android" title="Mengenal Parameter Audio dan Sound Aplikasi Android" height="45" width="50"></div><a href="http://mkhuda.com/android/mengenal-parameter-audio-dan-sound-aplikasi-android/" title="Go to Mengenal Parameter Audio dan Sound Aplikasi Android">Mengenal Parameter Audio dan Sound Aplikasi Android</a><div class="date">March 2, 2014</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/swipe-android-50x50.png" class="attachment-featured-small-widget wp-post-image" alt="Membuat Class Swipe Gesture pada Aplikasi Android" title="Membuat Class Swipe Gesture pada Aplikasi Android" height="50" width="50"></div><a href="http://mkhuda.com/android/membuat-class-swipe-gesture-pada-aplikasi-android/" title="Go to Membuat Class Swipe Gesture pada Aplikasi Android">Membuat Class Swipe Gesture pada Aplikasi Android</a><div class="date">February 27, 2014</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Activity-Android-47x50.png" class="attachment-featured-small-widget wp-post-image" alt="Permasalahan Multiple Activity Pada Aplikasi Android" title="Permasalahan Multiple Activity Pada Aplikasi Android" height="50" width="47"></div><a href="http://mkhuda.com/android/permasalahan-multiple-activity-pada-aplikasi-android/" title="Go to Permasalahan Multiple Activity Pada Aplikasi Android">Permasalahan Multiple Activity Pada Aplikasi Android</a><div class="date">February 22, 2014</div></li></ul></aside><aside id="recent-comments-4" class="widget widget_recent_comments"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-comments-alt icon-large"></i>Komentar</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="http://mkhuda.com/" rel="external nofollow" class="url">Muhammad K Huda</a></span> on <a href="http://mkhuda.com/teknologi/konfigurasi-email-hosting-pop3imap-untuk-pengguna-android/#comment-6855">Konfigurasi Email Hosting POP3/IMAP Untuk Pengguna Android</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://mkhuda.com/" rel="external nofollow" class="url">Muhammad K Huda</a></span> on <a href="http://mkhuda.com/html5/integrasi-json-php-dan-jquery-untuk-aplikasi-mobile/#comment-6854">Integrasi JSON, PHP Dan Jquery Untuk Aplikasi Mobile</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://mkhuda.com/" rel="external nofollow" class="url">Muhammad K Huda</a></span> on <a href="http://mkhuda.com/android/permasalahan-multiple-activity-pada-aplikasi-android/#comment-6853">Permasalahan Multiple Activity Pada Aplikasi Android</a></li><li class="recentcomments"><span class="comment-author-link">baja</span> on <a href="http://mkhuda.com/web/permasalahan-penggunaan-header-location-aplikasi-php/#comment-6829">Permasalahan Penggunaan Header Location Aplikasi PHP</a></li><li class="recentcomments"><span class="comment-author-link">fundev</span> on <a href="http://mkhuda.com/android/membuat-image-button-pada-aplikasi-android/#comment-6811">Membuat Image Button Pada Aplikasi Android</a></li><li class="recentcomments"><span class="comment-author-link">lilhuda</span> on <a href="http://mkhuda.com/android/permasalahan-multiple-activity-pada-aplikasi-android/#comment-6809">Permasalahan Multiple Activity Pada Aplikasi Android</a></li></ul></aside><aside id="tag_cloud-5" class="widget widget_tag_cloud"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-tags icon-large"></i>Tag</h3><div class="tagcloud"><a href="http://mkhuda.com/tag/android/" class="tag-link-147" title="57 topics" style="font-size: 22pt;">Android</a>
+<a href="http://mkhuda.com/tag/coretan/" class="tag-link-6" title="26 topics" style="font-size: 12.76pt;">Coretan</a>
+<a href="http://mkhuda.com/tag/curhat/" class="tag-link-34" title="18 topics" style="font-size: 8.56pt;">curhat</a>
+<a href="http://mkhuda.com/tag/developer/" class="tag-link-26" title="54 topics" style="font-size: 21.44pt;">Developer</a>
+<a href="http://mkhuda.com/tag/eclipse/" class="tag-link-28" title="17 topics" style="font-size: 8pt;">Eclipse</a>
+<a href="http://mkhuda.com/tag/html5/" class="tag-link-146" title="32 topics" style="font-size: 15.28pt;">HTML5</a>
+<a href="http://mkhuda.com/tag/mobile/" class="tag-link-16" title="51 topics" style="font-size: 20.88pt;">Mobile</a>
+<a href="http://mkhuda.com/tag/open-source/" class="tag-link-145" title="23 topics" style="font-size: 11.36pt;">Open Source</a>
+<a href="http://mkhuda.com/tag/phonegap/" class="tag-link-18" title="31 topics" style="font-size: 15pt;">PhoneGap</a>
+<a href="http://mkhuda.com/tag/php/" class="tag-link-13" title="18 topics" style="font-size: 8.56pt;">php</a>
+<a href="http://mkhuda.com/tag/teknologi/" class="tag-link-144" title="49 topics" style="font-size: 20.32pt;">Teknologi</a>
+<a href="http://mkhuda.com/tag/teknologi-informasi/" class="tag-link-5" title="24 topics" style="font-size: 11.92pt;">Teknologi Informasi</a>
+<a href="http://mkhuda.com/tag/tips-trik/" class="tag-link-37" title="30 topics" style="font-size: 14.44pt;">Tips Trik</a>
+<a href="http://mkhuda.com/tag/tutorial/" class="tag-link-50" title="43 topics" style="font-size: 18.64pt;">Tutorial</a>
+<a href="http://mkhuda.com/tag/web/" class="tag-link-148" title="56 topics" style="font-size: 22pt;">Web</a></div>
+</aside></div>  </div>
+ 
+</div>
+ 
+<div id="colophon" class="site-footer" role="contentinfo">
+<div id="colophon-widget">
+<div class="footbar-widget-content">
+<aside id="nuwhite_popular_posts-2" class="widget popular_posts"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-thumbs-up icon-large"></i>Popular Posts</h3><ul class="popular-widget"><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Phonegap-and-Sqlite.jpg" class="attachment-featured-small-widget wp-post-image" alt="Aplikasi Android Phonegap Dengan Database SQLite" title="Aplikasi Android Phonegap Dengan Database SQLite" height="50" width="37"></div><a href="http://mkhuda.com/android/aplikasi-android-phonegap-dengan-database-sqlite/" title="Go to Aplikasi Android Phonegap Dengan Database SQLite">Aplikasi Android Phonegap Dengan Database SQLite</a><div class="date">July 5, 2013</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/alur-data-json-php-jquery.jpg" class="attachment-featured-small-widget wp-post-image" alt="Integrasi JSON, PHP Dan Jquery Untuk Aplikasi Mobile" title="Integrasi JSON, PHP Dan Jquery Untuk Aplikasi Mobile" height="35" width="50"></div><a href="http://mkhuda.com/html5/integrasi-json-php-dan-jquery-untuk-aplikasi-mobile/" title="Go to Integrasi JSON, PHP Dan Jquery Untuk Aplikasi Mobile">Integrasi JSON, PHP Dan Jquery Untuk Aplikasi Mobile</a><div class="date">April 28, 2013</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Kuis-Phonegap.jpg" class="attachment-featured-small-widget wp-post-image" alt="Aplikasi Kuis Berbasis Android Menggunakan JQuizMe" title="Aplikasi Kuis Berbasis Android Menggunakan JQuizMe" height="41" width="50"></div><a href="http://mkhuda.com/android/aplikasi-kuis-berbasis-android-menggunakan-jquizme/" title="Go to Aplikasi Kuis Berbasis Android Menggunakan JQuizMe">Aplikasi Kuis Berbasis Android Menggunakan JQuizMe</a><div class="date">May 12, 2013</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/android-audio-background-50x45.png" class="attachment-featured-small-widget wp-post-image" alt="Memberi Background Audio Pada Aplikasi / Game Android" title="Memberi Background Audio Pada Aplikasi / Game Android" height="45" width="50"></div><a href="http://mkhuda.com/android/memberi-background-audio-pada-aplikasi-game-android/" title="Go to Memberi Background Audio Pada Aplikasi / Game Android">Memberi Background Audio Pada Aplikasi / Game Android</a><div class="date">January 6, 2014</div></li><li><div class="widget-thumbnails"><img src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/Exit-App-Android.jpg" class="attachment-featured-small-widget wp-post-image" alt="Exit App Notification Pada Aplikasi Phonegap" title="Exit App Notification Pada Aplikasi Phonegap" height="34" width="50"></div><a href="http://mkhuda.com/android/exit-app-notification-pada-aplikasi-phonegap/" title="Go to Exit App Notification Pada Aplikasi Phonegap">Exit App Notification Pada Aplikasi Phonegap</a><div class="date">July 24, 2013</div></li></ul></aside> </div>
+<div class="footbar-widget-content">
+<aside id="nuwhite_social_widget-2" class="widget social_widget"><div class="social-profiles clearfix"><ul><li class="facebook"><a href="http://facebook.com/muhammad.k.huda" title="Mkhuda Blog on Facebook" target="_blank"></a></li><li class="twitter"><a href="http://twitter.com/mkhuda" title="Mkhuda Blog on Twitter" target="_blank"></a></li><li class="youtube"><a href="http://youtube.com/user/mrhud90" title="Mkhuda Blog on Youtube" target="_blank"></a></li><li class="rss"><a href="http://mkhuda.com/rss" title="Mkhuda Blog on RSS" target="_blank"></a></li></ul></div>  </aside><aside id="search-3" class="widget widget_search"> <form method="get" id="searchform" action="http://mkhuda.com/" role="search">
+<label for="s" class="assistive-text">Search</label>
+<input class="field" name="s" id="s" placeholder="Search …" type="text">
+<input class="submit" name="submit" id="searchsubmit" value="Go" type="submit">
+</form></aside> </div>
+<div class="footbar-widget-content">
+<aside id="text-2" class="widget widget_text"><h3 class="widget-title"><i style="padding-right: 10px; vertical-align: inherit;" class="font-awesome icon-github-alt icon-large"></i>Tentang Penulis</h3> <div class="textwidget">Penulis
+ sedang menekuni beberapa riset di dunia web, design dan juga mobile 
+development. Tujuan penulis membuat blog ini adalah ingin membagikan 
+pengalaman riset-riset pribadi.<br>
+<a class="readmore" title="Mkhuda About" href="http://mkhuda.com/about">Full Reading</a>
+</div>
+</aside> </div>
+</div>
+<div class="site-credits">
+<a href="http://wordpress.org/" title="A Semantic Personal Publishing Platform" rel="generator">
+Proudly powered by WordPress</a>
+<span class="sep"> | </span>
+<a href="http://mkhuda.com/themes/" title="Mkhuda" rel="generator">
+Theme BlueVita</a> by Mkhuda sjp124 <br>
+ 
+</div> 
+</div> 
+<div style="display: none;" class="back-to-top"><a href="#masthead">'.__( 'Back to Top', 'nuwhite' ).'</a></div>
+</div>
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40364298-1', 'mkhuda.com');
+  ga('send', 'pageview');
+
+</script><script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/form.js"></script>
+<link rel="stylesheet" id="standout_css3_button_style-css" href="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/standout-css3-buttons.css" type="text/css" media="all">
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/widgets_002.js"></script>
+<script gapi_processed="true" type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/plusone.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/email-subscription.js"></script><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/postmessageRelay.htm" id="oauth2relay873961312" name="oauth2relay873961312"></iframe>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/comment-reply.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/backtotop.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/unslider.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/text-banner.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/selectnav.js"></script>
+<script type="text/javascript" src="Implementasi%20Level%20Admin%20Dengan%20Session%20PHP%20MySQL%20_%20Mkhuda%20Blog_files/menu-top.js"></script>
+<script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script><script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs.u-ad.info/cfspushadsv2/request" + "?id=1" + "&enc=telkom2" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582ECSaLdwqSpng68UTAYcyVUDw7jy4ge9LhTerHliSk5t8FyxJrTbrQZOadsaT9L2y6seRRadbK9NawjTYu9DgNXNftNU3EjUo3%2bnqKplil1q6wMQAo%2fA5N4lbz21SoCH225U4nYA%2bUZlNaKnPiRwL5UrhYhA%2f2ZxdsCvy315jdI6%2foEoJsCHVYt%2fDC%2f%2fgRsdgQ8yXVLFVVVclsLo%2fHdzRSuBvUuVH7bd9VvyGa1XFox2rKE3FQEX%2bYWkDX5oXBG%2fdW7DBjBOkHF07%2bAHdoFqH5upSeuInW0uv7pkyjuvSMdLPcp4lahvTcIH6BzCYrTIOQ71Sr3hkDeXLTqSu1plxLakHrwqcRmi0ZcDT076tE8eYVOXRmrPO2N2E5X4kQ%2b%2bRSamGwNczE5wJLPSdqzHQMYfxoQwZ2BQ2z9NKin57Jq70OZexOFkXtp9kHdj%2b%2fmCUnR753pUACOx%2birbyH0IcNGuTeFszsM2gzjJxEatvPprNnhkvBXb4FaZrZG7ZFE%2fnv4ddNY3ZouHmMNUcFyHOQ%2bNyZBL8LZVaGWMO3K6crk7Gj%2fPIWo1v8VZUInA17bevrsB4WqhxUXZNzVvdvq6MID05h5o5PC%2f%2f8r98Gz7gm6yXYDvIQ6pls%2fl2nKpJ6ECrJf1Ksv6teI1" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script>
+
+<iframe style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" allowfullscreen="true" allowtransparency="true" scrolling="no" id="rufous-sandbox" frameborder="0"></iframe></body></html>

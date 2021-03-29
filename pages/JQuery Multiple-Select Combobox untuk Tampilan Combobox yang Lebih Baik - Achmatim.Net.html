@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_1 -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/analytics.js.download"></script><script type="text/javascript" async="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/recaptcha__en.js.download"></script><script id="facebook-jssdk" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/sdk.js.download"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://achmatim.net/xmlrpc.php">
+
+<title>JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v4.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Tulisan Achmad Solichin tentang JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik di Achmatim.Net">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/">
+<link rel="publisher" href="https://plus.google.com/102985994918956701968/about">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net">
+<meta property="og:description" content="Tulisan Achmad Solichin tentang JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik di Achmatim.Net">
+<meta property="og:url" content="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/">
+<meta property="og:site_name" content="Achmatim.Net">
+<meta property="article:publisher" content="https://www.facebook.com/pages/AchmatimNet/187429252308">
+<meta property="article:author" content="http://facebook.com/achmatim">
+<meta property="article:tag" content="combobox">
+<meta property="article:tag" content="jquery">
+<meta property="article:tag" content="multiple-select">
+<meta property="article:tag" content="plugin">
+<meta property="article:section" content="JQuery">
+<meta property="article:published_time" content="2013-07-15T00:12:07+07:00">
+<meta property="article:modified_time" content="2017-02-05T21:47:53+07:00">
+<meta property="og:updated_time" content="2017-02-05T21:47:53+07:00">
+<meta property="og:image" content="http://achmatim.net/wp-content/uploads/2013/08/multi-select-04.png">
+<meta property="og:image:width" content="497">
+<meta property="og:image:height" content="272">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Tulisan Achmad Solichin tentang JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik di Achmatim.Net">
+<meta name="twitter:title" content="JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net">
+<meta name="twitter:site" content="@achmatim">
+<meta name="twitter:image" content="http://achmatim.net/wp-content/uploads/2013/08/multi-select-04.png">
+<meta name="twitter:creator" content="@achmatim">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://w.sharethis.com/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Achmatim.Net » Feed" href="http://achmatim.net/feed/">
+<link rel="alternate" type="application/rss+xml" title="Achmatim.Net » Comments Feed" href="http://achmatim.net/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Achmatim.Net » JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik Comments Feed" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"wpemoji":"http:\/\/achmatim.net\/wp-includes\/js\/wp-emoji.js?ver=4.7.3","twemoji":"http:\/\/achmatim.net\/wp-includes\/js\/twemoji.js?ver=4.7.3"}};
+			( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	/*
+	 * Create a canvas element for testing native browser support
+	 * of emoji.
+	 */
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Detect if the browser supports rendering emoji or flag emoji. Flag emoji are a single glyph
+	 * made of two characters, so some browsers (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param type {String} Whether to test for support of "flag" or "emoji4" emoji.
+	 * @return {Boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var stringFromCharCode = String.fromCharCode,
+			flag, flag2, technologist, technologist2;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * This works because the image will be one of three things:
+				 * - Two empty squares, if the browser doesn't render emoji
+				 * - Two squares with 'U' and 'N' in them, if the browser doesn't render flag emoji
+				 * - The United Nations flag
+				 *
+				 * The first two will encode to small images (1-2KB data URLs), the third will encode
+				 * to a larger image (4-5KB data URL).
+				 */
+				context.fillText( stringFromCharCode( 55356, 56826, 55356, 56819 ), 0, 0 );
+				if ( canvas.toDataURL().length < 3000 ) {
+					return false;
+				}
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				/*
+				 * Test for rainbow flag compatibility. As the rainbow flag was added out of sequence with
+				 * the usual Unicode release cycle, some browsers support it, and some don't, even if their
+				 * Unicode support is up to date.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + rainbow emoji).
+				 */
+				context.fillText( stringFromCharCode( 55356, 57331, 65039, 8205, 55356, 57096 ), 0, 0 );
+				flag = canvas.toDataURL();
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				context.fillText( stringFromCharCode( 55356, 57331, 55356, 57096 ), 0, 0 );
+				flag2 = canvas.toDataURL();
+
+				return flag !== flag2;
+			case 'emoji4':
+				/*
+				 * Emoji 4 has the best technologists. So does WordPress!
+				 *
+				 * To test for support, try to render a new emoji (woman technologist: medium skin tone),
+				 * then compare it to how it would look if the browser doesn't render it correctly
+				 * (woman technologist: medium skin tone + personal computer).
+				 */
+				context.fillText( stringFromCharCode( 55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0 );
+				technologist = canvas.toDataURL();
+
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				context.fillText( stringFromCharCode( 55357, 56425, 55356, 57341, 55357, 56507), 0, 0 );
+				technologist2 = canvas.toDataURL();
+
+				return technologist !== technologist2;
+		}
+
+		return false;
+	}
+
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji4' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script><script src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/twemoji.js.download" type="text/javascript" defer=""></script><script src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/wp-emoji.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="geshi-php-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/php.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="fancybox-style-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/jquery.fancybox.css" type="text/css" media="all">
+<link rel="stylesheet" id="ssbaFont-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/pagenavi-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="tortuga-stylesheet-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/style.css" type="text/css" media="all">
+<style id="tortuga-stylesheet-inline-css" type="text/css">
+.site-description { position: absolute; clip: rect(1px, 1px, 1px, 1px); }
+</style>
+<link rel="stylesheet" id="genericons-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="tortuga-default-fonts-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="themezee-related-posts-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/themezee-related-posts.css" type="text/css" media="all">
+<link rel="stylesheet" id="wptt_front-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/admin_style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-downloadmanager-css" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/download-css.css" type="text/css" media="all">
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/jquery.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/jquery-migrate.js.download"></script>
+<script id="st_insights_js" type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/st_insights.js.download"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://achmatim.net/wp-content/themes/tortuga/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/navigation.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/jquery.easyPaginate.js.download"></script>
+<link rel="https://api.w.org/" href="http://achmatim.net/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://achmatim.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://achmatim.net/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="http://achmatim.net/?p=9848">
+<link rel="alternate" type="application/json+oembed" href="http://achmatim.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fachmatim.net%2F2013%2F07%2F15%2Fjquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://achmatim.net/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fachmatim.net%2F2013%2F07%2F15%2Fjquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik%2F&amp;format=xml">
+    <style type="text/css">
+        .wpcp {background: #f7f7f7; padding: 16px 20px; border-radius: 5px; line-height: 20px;}
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/easycommentspaginate.css"><style type="text/css">.easyCommentsPaginateWrapper {}</style><script type="text/javascript">jQuery(document).ready(function($) {
+				$('.commentlist').easyPaginate({
+				    paginateElement: 'li',
+                    elementsPerPage: 20,
+                    hashPage: 'page',
+                    effect: 'default',
+                    slideOffset: 200,
+                    firstButton: true,
+                    firstButtonText: '«',
+                    lastButton: true,
+                    lastButtonText: '»',        
+                    prevButton: true,
+                    prevButtonText: '‹',        
+                    nextButton: true,
+                    nextButtonText: '›'
+				});
+			});</script><script>(function(d, s, id){
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) {return;}
+                 js = d.createElement(s); js.id = id;
+                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));</script><style type="text/css">	.ssba {
+									
+									
+									
+									
+								}
+								.ssba img
+								{
+									width: 35px !important;
+									padding: 6px;
+									border:  0;
+									box-shadow: none !important;
+									display: inline !important;
+									vertical-align: middle;
+								}
+								.ssba, .ssba a
+								{
+									text-decoration:none;
+									border:0;
+									background: none;
+									font-family: Indie Flower;
+									font-size: 	20px;
+									
+									font-weight: bold;
+								}
+								.ssba_sharecount:after, .ssba_sharecount:before {
+									right: 100%;
+									border: solid transparent;
+									content: " ";
+									height: 0;
+									width: 0;
+									position: absolute;
+									pointer-events: none;
+								}
+								.ssba_sharecount:after {
+									border-color: rgba(224, 221, 221, 0);
+									border-right-color: #f5f5f5;
+									border-width: 5px;
+									top: 50%;
+									margin-top: -5px;
+								}
+								.ssba_sharecount:before {
+									border-color: rgba(85, 94, 88, 0);
+									border-right-color: #e0dddd;
+									border-width: 6px;
+									top: 50%;
+									margin-top: -6px;
+								}
+								.ssba_sharecount {
+									font: 11px Arial, Helvetica, sans-serif;
+
+									padding: 5px;
+									-khtml-border-radius: 6px;
+									-o-border-radius: 6px;
+									-webkit-border-radius: 6px;
+									-moz-border-radius: 6px;
+									border-radius: 6px;
+									position: relative;
+									border: 1px solid #e0dddd;color: #555e58;
+										background: #f5f5f5;
+									}
+									.ssba_sharecount:after {
+										border-right-color: #f5f5f5;
+									}</style>
+<link rel="stylesheet" href="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/wp-synhighlighter.css" type="text/css" media="screen">
+
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/wp-synhighlighter.js.download"></script>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body class="post-template-default single single-post postid-9848 single-format-standard post-layout-two-columns post-layout-columns">
+
+	<div id="page" class="hfeed site">
+
+		<a class="skip-link screen-reader-text" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#content">Skip to content</a>
+
+		
+		<header id="masthead" class="site-header clearfix" role="banner">
+
+			<div class="header-main container clearfix">
+
+				<div id="logo" class="site-branding clearfix">
+
+										
+			<p class="site-title"><a href="http://achmatim.net/" rel="home">Achmatim.Net</a></p>
+
+							
+			<p class="site-description">Tutorial Komputer dan Buku Pembelajaran Gratis</p>
+
+		
+				</div><!-- .site-branding -->
+
+				<div class="header-widgets clearfix">
+
+					<aside id="search-3" class="header-widget widget_search">
+<form role="search" method="get" class="search-form" action="http://achmatim.net/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+	</label>
+	<button type="submit" class="search-submit">
+		<span class="genericon-search"></span>
+		<span class="screen-reader-text">Search</span>
+	</button>
+</form>
+</aside>
+				</div><!-- .header-widgets -->
+
+			</div><!-- .header-main -->
+
+			<div id="main-navigation-wrap" class="primary-navigation-wrap">
+
+				<button id="main-navigation-toggle" class="main-navigation-toggle"></button><nav id="main-navigation" class="primary-navigation navigation container clearfix" role="navigation">
+					<ul id="menu-top-nav" class="main-navigation-menu"><li id="menu-item-1071" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1071"><a href="http://achmatim.net/">Home</a></li>
+<li id="menu-item-1073" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1073" aria-haspopup="true" aria-expanded="false"><span class="submenu-dropdown-toggle"></span><a href="http://achmatim.net/about-me/">About Me</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-1072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1072"><a href="http://achmatim.net/about-me/about/">About Me</a></li>
+	<li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="http://achmatim.net/about-me/photos/">Photos</a></li>
+	<li id="menu-item-9163" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9163"><a href="http://achmatim.net/about-me/kalender-kegiatan/">Kalender Kegiatan</a></li>
+</ul>
+</li>
+<li id="menu-item-1075" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1075" aria-haspopup="true" aria-expanded="false"><span class="submenu-dropdown-toggle"></span><a href="http://achmatim.net/buku-gratis/">Buku Gratis</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-1074" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1074"><a href="http://achmatim.net/buku-gratis/algoritma-dan-pemrograman-dengan-turbo-c/">Algoritma dan Pemrograman dengan Turbo C</a></li>
+	<li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1082"><a href="http://achmatim.net/buku-gratis/mysql-5-dari-pemula-hingga-mahir/">MySQL 5: Dari Pemula Hingga Mahir</a></li>
+	<li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="http://achmatim.net/buku-gratis/pemrograman-web-dengan-php-dan-mysql/">Pemrograman Web dengan PHP dan MySQL</a></li>
+	<li id="menu-item-9928" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9928"><a href="http://achmatim.net/buku-gratis/buku-gratis-dari-berbagai-sumber/">Buku Gratis dari Berbagai Sumber</a></li>
+</ul>
+</li>
+<li id="menu-item-1076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1076"><a href="http://achmatim.net/downloads/">Downloads</a></li>
+<li id="menu-item-1080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1080"><a href="http://achmatim.net/materi-kuliah/">Materi Kuliah</a></li>
+<li id="menu-item-1088" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1088" aria-haspopup="true" aria-expanded="false"><span class="submenu-dropdown-toggle"></span><a href="http://achmatim.net/tutorial/">Tutorial</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-8692" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-8692"><a href="http://achmatim.net/category/web-development/jquery-web-development/">JQuery</a></li>
+	<li id="menu-item-1077" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1077"><a href="http://achmatim.net/tutorial/dreamweaver/">Dreamweaver</a></li>
+	<li id="menu-item-1081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1081"><a href="http://achmatim.net/tutorial/mysql/">MySQL</a></li>
+	<li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="http://achmatim.net/tutorial/php/">PHP</a></li>
+</ul>
+</li>
+<li id="menu-item-9317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9317"><a href="http://achmatim.net/publikasi/">Publikasi</a></li>
+</ul>				</nav><!-- #main-navigation -->
+
+			</div>
+
+		</header><!-- #masthead -->
+
+		
+		
+		<div id="content" class="site-content container clearfix">
+
+	<section id="primary" class="content-single content-area">
+		<main id="main" class="site-main" role="main">
+				
+		
+<article id="post-9848" class="post-9848 post type-post status-publish format-standard has-post-thumbnail hentry category-jquery-web-development category-tutorial-mysql category-pemrograman-php category-web-development tag-combobox tag-jquery tag-multiple-select tag-plugin">
+
+	<img width="185" height="215" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/multi-select-04-185x215.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+	<header class="entry-header">
+
+		<h1 class="entry-title">JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik</h1>
+		<div class="entry-meta"><span class="meta-date"><a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" title="00:12" rel="bookmark"><time class="entry-date published updated" datetime="2013-07-15T00:12:07+00:00">July 15, 2013</time></a></span><span class="meta-author"> <span class="author vcard"><a class="url fn n" href="http://achmatim.net/author/achmatim/" title="View all posts by Achmad Solichin" rel="author">Achmad Solichin</a></span></span><span class="meta-category"> <a href="http://achmatim.net/category/web-development/jquery-web-development/" rel="category tag">JQuery</a>, <a href="http://achmatim.net/category/web-development/tutorial-mysql/" rel="category tag">MySQL</a>, <a href="http://achmatim.net/category/web-development/pemrograman-php/" rel="category tag">PHP</a>, <a href="http://achmatim.net/category/web-development/" rel="category tag">Web Development</a></span><span class="meta-comments"> <a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comments">13 comments</a></span></div>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content clearfix">
+
+		<p>Combobox atau Selecbox merupakan salah satu komponen penting dari form inputan. Melalui jenis inputan ini, normalnya pengguna dapat memilih satu pilihan yang ditampilkan dalam bentuk <em>drop-down</em>. Namun dengan menambahkan atribut multiple, maka pengguna juga dapat memilih lebih dari satu pilihan sekaligus. Pada jenis combobox dengan pilihan tunggal memang pengguna rata-rata cukup nyaman dengan bentuk dasarnya, namun pada bentuk jamak (<em>multiple-select combobox</em>), pengguna seringkali tidak terlalu nyaman karena dalam memilih beberapa pilihan sekaligus harus menekan tombol Ctrl. Sedangkan tidak semua pengguna memahami hal tersebut.</p>
+<p><span id="more-9848"></span></p>
+<p><a href="http://achmatim.net/wp-content/uploads/2013/08/multi-select-04.png"><img class="aligncenter size-medium wp-image-9849" alt="multi-select-04" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/multi-select-04-300x164.png" width="300" height="164" srcset="http://achmatim.net/wp-content/uploads/2013/08/multi-select-04-300x164.png 300w, http://achmatim.net/wp-content/uploads/2013/08/multi-select-04.png 497w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p align="JUSTIFY">Dalam tutorial ini, dibahas mengenai bagaimana memanfaatkan <strong>Plugin JQuery Multiple-Select</strong> untuk membuat penampilan combobox menjadi lebih nyaman dan lebih mudah dari sisi pengguna. Plugin Jquery Multiple-Select yang akan kita gunakan mengharuskan penggunaan library <strong>JQuery</strong> versi 1.7.0 ke atas. Plugin ini memiliki beberapa fitur unggulan (seperti dikutip dari <a href="http://wenzhixin.net.cn/p/multiple-select" target="_blank">situs resminya</a>) sebagai berikut:</p>
+<ul>
+<li>Secara default akan menampilkan pilihan combobox dalam bentuk checkbox.</li>
+<li>Mendukung pilihan group (optgroup).</li>
+<li>Dapat menampilkan beberapa item sekaligus dalam sebuah baris.</li>
+<li>Terdapat pilihan “Select all”</li>
+<li>Terdapat pilihan placeholder.</li>
+</ul>
+<p>Plugin ini juga dapat dijalankan di berbagai browser modern, seperti IE 7+, Chrome 8+, Firefox 10+, Safari 3+ dan Opera 10.6+.</p>
+<h2>Download Library JQuery dan Plugin JQuery Multiple-Select</h2>
+<p align="JUSTIFY">Sebelum mencoba contoh-contoh program dalam tutorial ini, kita harus mendownload library JQuery dan plugin Multiple-Select di link berikut ini:</p>
+<ol>
+<li>Download versi terakhir JQuery di laman <a href="http://code.jquery.com/">http://code.jquery.com</a></li>
+<li>Download Plugin JQuery Multiple-Select di halaman <a href="http://wenzhixin.net.cn/p/multiple-select">http://wenzhixin.net.cn/p/multiple-select</a> atau <a href="http://plugins.jquery.com/multiple.select/">http://plugins.jquery.com/multiple.select/</a></li>
+</ol>
+<h2>Contoh Sederhana Penggunaan Plugin Multiple-Select</h2>
+<p align="JUSTIFY">Seperti halnya plugin JQuery yang lainnya, plugin multiple-select mengharuskan pemanggilan library utama JQuery. Sementara itu untuk membuat obyek multiple select, gunakan perintah HTML biasa, yaitu dengan tag <strong>&lt;select&gt;</strong> dan <strong>&lt;option&gt;</strong>. Jangan lupa untuk menambahkan atribut ID pada tag <strong>&lt;select&gt;</strong> sebagai identitas dan selector di Jquery.</p>
+<p align="JUSTIFY">Perhatikan contoh sederhana program demo #1 berikut ini:</p>
+<p align="JUSTIFY"></p><div id="wpshdo_1" class="wp-synhighlighter-outer"><div id="wpshdt_1" class="wp-synhighlighter-expanded"><table border="0" width="100%"><tbody><tr><td align="left" width="80%"><a name="#codesyntax_1"></a><a id="wpshat_1" class="wp-synhighlighter-title" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_1" onclick="javascript:wpsh_toggleBlock(1)" title="Click to show/hide code block">demo1.php</a></td><td align="right"><a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_1" onclick="javascript:wpsh_code(1)" title="Show code only"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/code.png"></a>&nbsp;<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_1" onclick="javascript:wpsh_print(1)" title="Print code"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/printer.png"></a>&nbsp;<a href="http://achmatim.net/wp-content/plugins/wp-synhighlight/About.html" target="_blank" title="Show plugin information"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/info.gif"></a>&nbsp;</td></tr></tbody></table></div><div id="wpshdi_1" class="wp-synhighlighter-inner" style="display: block;"><pre class="php" style="font-family:monospace;"><ol><li class="li1"><div class="de1"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;</span>head<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>JQuery Multiple Select<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">"libs/jquery.min.js"</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">"libs/jquery.multiple.select.js"</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>link rel<span class="sy0">=</span><span class="st0">"stylesheet"</span> href<span class="sy0">=</span><span class="st0">"libs/multiple-select.css"</span><span class="sy0">/&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			$<span class="br0">(</span>document<span class="br0">)</span><span class="sy0">.</span>ready<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span></div></li><li class="li1"><div class="de1">				$<span class="br0">(</span><span class="st_h">'#demo1'</span><span class="br0">)</span><span class="sy0">.</span>multipleSelect<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2">			<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">		<span class="kw2">&lt;/script&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;</span>body<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span>JQuery Multiple Select Demo<span class="sy0">&lt;/</span>h1<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;</span>h2<span class="sy0">&gt;</span>Demo <span class="co2">#1 : Contoh Sederhana&lt;/h2&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">""</span> method<span class="sy0">=</span><span class="st0">"post"</span><span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>h3<span class="sy0">&gt;</span>Multiple Combobox tanpa Plugin<span class="sy0">&lt;/</span>h3<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">"demo1a"</span> name<span class="sy0">=</span><span class="st0">"demo1a[]"</span> multiple<span class="sy0">=</span><span class="st0">"multiple"</span> style<span class="sy0">=</span><span class="st0">"width:200px"</span><span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JKT"</span><span class="sy0">&gt;</span>DKI Jakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"BTN"</span><span class="sy0">&gt;</span>Banten<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JABAR"</span><span class="sy0">&gt;</span>Jawa Barat<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATENG"</span><span class="sy0">&gt;</span>Jawa Tengah<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATIM"</span><span class="sy0">&gt;</span>Jawa Timur<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"DIY"</span><span class="sy0">&gt;</span>DI Yogyakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>h3<span class="sy0">&gt;</span>Multiple Combobox dengan Plugin JQuery Multiple<span class="sy0">-</span>Select<span class="sy0">&lt;/</span>h3<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">"demo1"</span> name<span class="sy0">=</span><span class="st0">"demo1[]"</span> multiple<span class="sy0">=</span><span class="st0">"multiple"</span> style<span class="sy0">=</span><span class="st0">"width:200px"</span><span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JKT"</span><span class="sy0">&gt;</span>DKI Jakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"BTN"</span><span class="sy0">&gt;</span>Banten<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JABAR"</span><span class="sy0">&gt;</span>Jawa Barat<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATENG"</span><span class="sy0">&gt;</span>Jawa Tengah<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATIM"</span><span class="sy0">&gt;</span>Jawa Timur<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"DIY"</span><span class="sy0">&gt;</span>DI Yogyakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1"><span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div></li></ol></pre></div></div><p></p>
+<p align="JUSTIFY">Penjelasan Program Demo 1 di atas:</p>
+<table width="665" cellspacing="0" cellpadding="0">
+<colgroup>
+<col width="93">
+<col width="15">
+<col width="557"> </colgroup>
+<tbody>
+<tr valign="TOP">
+<td width="93">Baris 4</td>
+<td width="15">:</td>
+<td width="557">Menyertakan library JQuery. Sesuaikan dengan lokasi library JQuery yang Anda gunakan. Anda juga dapat mengganti lokasi library dengan CDN dari Jquery yang beralamat di <a href="http://code.jquery.com/jquery.js">http://code.jquery.com/jquery.js</a></td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 5</td>
+<td width="15">:</td>
+<td width="557">Menyertakan plugin JQuery Multiple-Select</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 6</td>
+<td width="15">:</td>
+<td width="557">Menyertakan file CSS plugin JQuery Multiple-Select. File CSS ini berfungsi untuk mengatur tampilan dari combobox.</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 8-10</td>
+<td width="15">:</td>
+<td width="557">Memanggil fungsi <span>multipleSelect()</span> tanpa opsi tambahan untuk mengaktifkan plugin Jquery Multiple-Select pada obyek dengan ID <span>#demo1. </span></td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 18-25</td>
+<td width="15">:</td>
+<td width="557">Perintah HTML untuk membentuk combobox multi-select. Perintah ini akan menampilkan combobox dimana kita dapat memilih lebih dari satu pilihan dengan menekan tombol Ctrl saat memilih. Ingat, untuk menjadikan suatu combobox menjadi multi-select, cukup menambahkan atribut <span><b>multiple=”multiple”</b></span> pada tag &lt;select&gt;. Tanpa atribut ini, combobox akan ditampilkan seperti combobox pada umumnya (hanya bisa dipilih 1 pilihan)</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 27-34</td>
+<td width="15">:</td>
+<td width="557">Sama seperti baris 18-25, menampilkan combobox multi-select. Combobox yang kedua ini yang akan ditampilkan dengan plugin Jquery Multiple-Select. Bandingkan hasilnya dengan combobox pertama.</td>
+</tr>
+</tbody>
+</table>
+<p align="JUSTIFY">Dan berikut ini tampilan dari program demo #1 di atas.</p>
+<figure id="attachment_9850" style="width: 300px" class="wp-caption aligncenter"><a href="http://achmatim.net/wp-content/uploads/2013/08/multi-select-01.png"><img class="size-medium wp-image-9850" alt="Contoh demo 1: Implementasi JQuery Multiple-Select" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/multi-select-01-300x251.png" width="300" height="251" srcset="http://achmatim.net/wp-content/uploads/2013/08/multi-select-01-300x251.png 300w, http://achmatim.net/wp-content/uploads/2013/08/multi-select-01.png 497w" sizes="(max-width: 300px) 100vw, 300px"></a><figcaption class="wp-caption-text">Contoh demo 1: Implementasi JQuery Multiple-Select</figcaption></figure>
+<h2>Multiple-Select dengan Placeholder dan Filter (Pencarian)</h2>
+<p align="JUSTIFY">Kita juga bisa menambahkan beberapa opsi (pilihan) pada plugin jquery multiple-select. Contohnya adalah penambahan Placeholder dan filter (pencarian). Placeholder merupakan keterangan yang muncul pada suatu form inputan dan akan hilang otomatis saat cursor berada pada form inputan tersebut. Sementara fitur pencarian sangat membantu pengguna untuk menemukan pilihan yang diinginkan, terutama dalam sebuah combobox dengan jumlah pilihan yang cukup banyak.</p>
+<p align="JUSTIFY">Perhatikan contoh demo #2 berikut ini.</p>
+<p align="JUSTIFY"></p><div id="wpshdo_2" class="wp-synhighlighter-outer"><div id="wpshdt_2" class="wp-synhighlighter-expanded"><table border="0" width="100%"><tbody><tr><td align="left" width="80%"><a name="#codesyntax_2"></a><a id="wpshat_2" class="wp-synhighlighter-title" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_2" onclick="javascript:wpsh_toggleBlock(2)" title="Click to show/hide code block">demo2.php</a></td><td align="right"><a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_2" onclick="javascript:wpsh_code(2)" title="Show code only"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/code.png"></a>&nbsp;<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_2" onclick="javascript:wpsh_print(2)" title="Print code"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/printer.png"></a>&nbsp;<a href="http://achmatim.net/wp-content/plugins/wp-synhighlight/About.html" target="_blank" title="Show plugin information"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/info.gif"></a>&nbsp;</td></tr></tbody></table></div><div id="wpshdi_2" class="wp-synhighlighter-inner" style="display: block;"><pre class="php" style="font-family:monospace;"><ol><li class="li1"><div class="de1"><span class="sy0">&lt;</span>html<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;</span>head<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>title<span class="sy0">&gt;</span>JQuery Multiple Select<span class="sy0">&lt;/</span>title<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">"libs/jquery.min.js"</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;</span>script src<span class="sy0">=</span><span class="st0">"libs/jquery.multiple.select.js"</span><span class="sy0">&gt;&lt;/</span>script<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>link rel<span class="sy0">=</span><span class="st0">"stylesheet"</span> href<span class="sy0">=</span><span class="st0">"libs/multiple-select.css"</span><span class="sy0">/&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>script<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			$<span class="br0">(</span>document<span class="br0">)</span><span class="sy0">.</span>ready<span class="br0">(</span><span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span><span class="br0">{</span></div></li><li class="li1"><div class="de1">				$<span class="br0">(</span><span class="st_h">'#demo2'</span><span class="br0">)</span><span class="sy0">.</span>multipleSelect<span class="br0">(</span><span class="br0">{</span></div></li><li class="li2"><div class="de2">					placeholder<span class="sy0">:</span> <span class="st0">"Pilih Propinsi"</span><span class="sy0">,</span></div></li><li class="li1"><div class="de1">					filter<span class="sy0">:</span><span class="kw4">true</span></div></li><li class="li1"><div class="de1">				<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">			<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">		<span class="kw2">&lt;/script&gt;</span></div></li><li class="li2"><div class="de2">	<span class="sy0">&lt;/</span>head<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;</span>body<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>h1<span class="sy0">&gt;</span>JQuery Multiple Select Demo<span class="sy0">&lt;/</span>h1<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>h2<span class="sy0">&gt;</span>Demo <span class="co2">#2 : Combobox dengan Placeholder dan Filter&lt;/h2&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>form action<span class="sy0">=</span><span class="st0">""</span> method<span class="sy0">=</span><span class="st0">"post"</span><span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;</span>h3<span class="sy0">&gt;</span>Multiple Combobox tanpa Plugin<span class="sy0">&lt;/</span>h3<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">"demo2a"</span> name<span class="sy0">=</span><span class="st0">"demo2a[]"</span> multiple<span class="sy0">=</span><span class="st0">"multiple"</span> style<span class="sy0">=</span><span class="st0">"width:200px"</span><span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JKT"</span><span class="sy0">&gt;</span>DKI Jakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"BTN"</span><span class="sy0">&gt;</span>Banten<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JABAR"</span><span class="sy0">&gt;</span>Jawa Barat<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATENG"</span><span class="sy0">&gt;</span>Jawa Tengah<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATIM"</span><span class="sy0">&gt;</span>Jawa Timur<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"DIY"</span><span class="sy0">&gt;</span>DI Yogyakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;</span>h3<span class="sy0">&gt;</span>Multiple Combobox dengan Plugin JQuery Multiple<span class="sy0">-</span>Select<span class="sy0">&lt;/</span>h3<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">		<span class="sy0">&lt;</span>select id<span class="sy0">=</span><span class="st0">"demo2"</span> name<span class="sy0">=</span><span class="st0">"demo2[]"</span> multiple<span class="sy0">=</span><span class="st0">"multiple"</span> style<span class="sy0">=</span><span class="st0">"width:200px"</span><span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JKT"</span><span class="sy0">&gt;</span>DKI Jakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"BTN"</span><span class="sy0">&gt;</span>Banten<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JABAR"</span><span class="sy0">&gt;</span>Jawa Barat<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATENG"</span><span class="sy0">&gt;</span>Jawa Tengah<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"JATIM"</span><span class="sy0">&gt;</span>Jawa Timur<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">			<span class="sy0">&lt;</span>option value<span class="sy0">=</span><span class="st0">"DIY"</span><span class="sy0">&gt;</span>DI Yogyakarta<span class="sy0">&lt;/</span>option<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;/</span>select<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">		<span class="sy0">&lt;/</span>form<span class="sy0">&gt;</span></div></li><li class="li1"><div class="de1">	<span class="sy0">&lt;/</span>body<span class="sy0">&gt;</span></div></li><li class="li2"><div class="de2"><span class="sy0">&lt;/</span>html<span class="sy0">&gt;</span></div></li></ol></pre></div></div><p></p>
+<p align="JUSTIFY">Program di atas pada dasarnya sama seperti program sebelumnya (demo 1). Perbedaannya adalah adanya penambahan opsi pada saat pemanggilan fungsi multipleSelect() seperti terlihat pada baris 8-13. Ada 2 opsi yang ditambahkan yaitu opsi “placeholder” yang berisi teks yang ditampilkan pada form, dan opsi “filter” yang jika diisi dengan “true” maka akan terdapat penambahan form untuk pencarian data pada combobox. Perhatikan tampilan program berikut ini.</p>
+<figure id="attachment_9852" style="width: 300px" class="wp-caption aligncenter"><a href="http://achmatim.net/wp-content/uploads/2013/08/multi-select-02.png"><img class="size-medium wp-image-9852" alt="Contoh Demo 2: JQuery Multiple-Select dengan Placeholder dan Filter" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/multi-select-02-300x209.png" width="300" height="209" srcset="http://achmatim.net/wp-content/uploads/2013/08/multi-select-02-300x209.png 300w, http://achmatim.net/wp-content/uploads/2013/08/multi-select-02.png 562w" sizes="(max-width: 300px) 100vw, 300px"></a><figcaption class="wp-caption-text">Contoh Demo 2: JQuery Multiple-Select dengan Placeholder dan Filter</figcaption></figure>
+<h2>Multiple-Select dengan Pilihan yang Diambil dari MySQL</h2>
+<p align="JUSTIFY">Pada contoh sebelumnya, opsi pada combobox diatur langsung di HTML. Pada contoh berikut ini, kita akan coba mengisi combobox dengan opsi yang diambil dari database MySQL. Agar tidak terlalu rumit, kita akan menggunakan tabel “propinsi” yang terdiri dari 2 field yaitu kode dan nama propinsi. Struktur tabel propinsi selengkapnya sebagai berikut:</p>
+<table width="393" cellspacing="0" cellpadding="0">
+<thead>
+<tr valign="TOP">
+<th width="38">NO</th>
+<th width="132">NAMA FIELD</th>
+<th width="77">TIPE</th>
+<th width="112">PANJANG</th>
+</tr>
+</thead>
+<tbody>
+<tr valign="TOP">
+<td width="38">
+<p align="CENTER">1</p>
+</td>
+<td width="132">kode</td>
+<td width="77">varchar</td>
+<td width="112">2</td>
+</tr>
+<tr valign="TOP">
+<td width="38">2</td>
+<td width="132">nama</td>
+<td width="77">varchar</td>
+<td width="112">40</td>
+</tr>
+</tbody>
+</table>
+<p align="JUSTIFY">Gunakan PHPMyAdmin atau MySQL Client kesukaan Anda untuk mengimport struktur tabel propinsi beserta isinya dalam bentuk <strong>.sql</strong> yang dapat <strong>didownload di sini</strong>.</p>
+<p align="JUSTIFY">Setelah tabel propinsi beserta isi datanya telah siap, selanjutnya cobalah contoh program <strong>demo3.php</strong> berikut ini.</p>
+<p align="JUSTIFY"></p><div id="wpshdo_3" class="wp-synhighlighter-outer"><div id="wpshdt_3" class="wp-synhighlighter-expanded"><table border="0" width="100%"><tbody><tr><td align="left" width="80%"><a name="#codesyntax_3"></a><a id="wpshat_3" class="wp-synhighlighter-title" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_3" onclick="javascript:wpsh_toggleBlock(3)" title="Click to show/hide code block">demo3.php</a></td><td align="right"><a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_3" onclick="javascript:wpsh_code(3)" title="Show code only"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/code.png"></a>&nbsp;<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#codesyntax_3" onclick="javascript:wpsh_print(3)" title="Print code"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/printer.png"></a>&nbsp;<a href="http://achmatim.net/wp-content/plugins/wp-synhighlight/About.html" target="_blank" title="Show plugin information"><img border="0" style="border: 0 none" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/info.gif"></a>&nbsp;</td></tr></tbody></table></div><div id="wpshdi_3" class="wp-synhighlighter-inner" style="display: block;"><pre class="php" style="font-family:monospace;"><ol><li class="li1"><div class="de1"><span class="kw2">&lt;?php</span></div></li><li class="li1"><div class="de1"><span class="co2">#koneksi</span></div></li><li class="li1"><div class="de1"><span class="re0">$conn</span> <span class="sy0">=</span> <a href="http://www.php.net/mysqli_connect"><span class="kw3">mysqli_connect</span></a><span class="br0">(</span><span class="st0">"localhost"</span><span class="sy0">,</span> <span class="st0">"root"</span><span class="sy0">,</span> <span class="st0">"qwerty"</span><span class="sy0">,</span> <span class="st0">"demo"</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="co2">#akhir-koneksi </span></div></li><li class="li2"><div class="de2">&nbsp;</div></li><li class="li1"><div class="de1"><span class="co2">#ambil data propinsi</span></div></li><li class="li1"><div class="de1"><span class="re0">$query</span> <span class="sy0">=</span> <span class="st0">"SELECT kode, nama FROM propinsi ORDER BY nama"</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="re0">$sql</span> <span class="sy0">=</span> <a href="http://www.php.net/mysqli_query"><span class="kw3">mysqli_query</span></a><span class="br0">(</span><span class="re0">$conn</span><span class="sy0">,</span> <span class="re0">$query</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="re0">$arrpropinsi</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="kw1">while</span> <span class="br0">(</span><span class="re0">$row</span> <span class="sy0">=</span> <a href="http://www.php.net/mysqli_fetch_assoc"><span class="kw3">mysqli_fetch_assoc</span></a><span class="br0">(</span><span class="re0">$sql</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li><li class="li1"><div class="de1">	<span class="re0">$arrpropinsi</span> <span class="br0">[</span> <span class="re0">$row</span><span class="br0">[</span><span class="st_h">'kode'</span><span class="br0">]</span> <span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$row</span><span class="br0">[</span><span class="st_h">'nama'</span><span class="br0">]</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="br0">}</span></div></li><li class="li1"><div class="de1"><span class="sy1">?&gt;</span></div></li><li class="li1"><div class="de1">&lt;html&gt;</div></li><li class="li2"><div class="de2">	&lt;head&gt;</div></li><li class="li1"><div class="de1">		&lt;title&gt;JQuery Multiple Select&lt;/title&gt;</div></li><li class="li1"><div class="de1">		&lt;script src="libs/jquery.min.js"&gt;&lt;/script&gt;</div></li><li class="li1"><div class="de1">		&lt;script src="libs/jquery.multiple.select.js"&gt;&lt;/script&gt;</div></li><li class="li1"><div class="de1">		&lt;link rel="stylesheet" href="libs/multiple-select.css"/&gt;</div></li><li class="li2"><div class="de2">		&lt;script&gt;</div></li><li class="li1"><div class="de1">			$(document).ready(function(){</div></li><li class="li1"><div class="de1">				$('#demo3').multipleSelect({</div></li><li class="li1"><div class="de1">					placeholder: "Pilih Propinsi",</div></li><li class="li1"><div class="de1">					filter:true</div></li><li class="li2"><div class="de2">				});</div></li><li class="li1"><div class="de1">			});</div></li><li class="li1"><div class="de1">		&lt;/script&gt;</div></li><li class="li1"><div class="de1">	&lt;/head&gt;</div></li><li class="li1"><div class="de1">	&lt;body&gt;</div></li><li class="li2"><div class="de2">		&lt;h1&gt;JQuery Multiple Select Demo&lt;/h1&gt;</div></li><li class="li1"><div class="de1">		&lt;h2&gt;Demo #3 : Combobox dengan Placeholder dan Filter&lt;/h2&gt;</div></li><li class="li1"><div class="de1">		&lt;form action="" method="post"&gt;</div></li><li class="li1"><div class="de1">		&lt;select id="demo3" name="demo3[]" multiple="multiple" style="width:300px"&gt;</div></li><li class="li1"><div class="de1">			<span class="kw2">&lt;?php</span></div></li><li class="li2"><div class="de2">			<span class="kw1">foreach</span><span class="br0">(</span><span class="re0">$arrpropinsi</span> <span class="kw1">as</span> <span class="re0">$kode</span><span class="sy0">=&gt;</span><span class="re0">$nama</span><span class="br0">)</span> <span class="br0">{</span></div></li><li class="li1"><div class="de1">				<span class="kw1">echo</span> <span class="st0">"&lt;option value='<span class="es4">$nama</span>'&gt;<span class="es4">$nama</span>&lt;/option&gt;"</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">			<span class="br0">}</span></div></li><li class="li1"><div class="de1">			<span class="sy1">?&gt;</span></div></li><li class="li1"><div class="de1">		&lt;/select&gt;</div></li><li class="li2"><div class="de2">		&lt;input type="submit" name="Pilih" value="Pilih"/&gt;</div></li><li class="li1"><div class="de1">		&lt;/form&gt;</div></li><li class="li1"><div class="de1">		<span class="kw2">&lt;?php</span></div></li><li class="li1"><div class="de1">		<span class="kw1">if</span><span class="br0">(</span><a href="http://www.php.net/isset"><span class="kw3">isset</span></a><span class="br0">(</span><span class="re0">$_POST</span><span class="br0">[</span><span class="st_h">'Pilih'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li><li class="li1"><div class="de1">			<span class="kw1">echo</span> <span class="st0">"Propinsi yang Anda pilih: &lt;br/&gt;"</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2">			<span class="kw1">echo</span> <a href="http://www.php.net/implode"><span class="kw3">implode</span></a><span class="br0">(</span><span class="st0">", "</span><span class="sy0">,</span> <span class="re0">$_POST</span><span class="br0">[</span><span class="st_h">'demo3'</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">		<span class="br0">}</span></div></li><li class="li1"><div class="de1">		<span class="sy1">?&gt;</span></div></li><li class="li1"><div class="de1">	&lt;/body&gt;</div></li><li class="li1"><div class="de1">&lt;/html&gt;</div></li></ol></pre></div></div><p></p>
+<p align="JUSTIFY">Pada contoh program yang ketiga diatas, terdapat beberapa penambahan code jika dibandingkan dengan program sebelumnya. Pilihan pada combobox tidak lagi dituliskan di dalam program secara langsung (HTML), tetapi diambil dari tabel propinsi yang berada di database MySQL. Berikut ini penjelasan singkat dari program di atas.</p>
+<table width="665" cellspacing="0" cellpadding="0">
+<colgroup>
+<col width="93">
+<col width="15">
+<col width="557"> </colgroup>
+<tbody>
+<tr valign="TOP">
+<td width="93">Baris 3</td>
+<td width="15">:</td>
+<td width="557">Pertama program akan melakukan koneksi ke database MySQL. Disini kita menggunakan fungsi mysqli_connect() yang memiliki 4 (empat) parameter, yaitu hostname, username, password dan nama database yang digunakan.</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 6-12</td>
+<td width="15">:</td>
+<td width="557">Mengambil data propinsi di tabel propinsi dan memasukkannya ke dalam variabel array $arrpropinsi. Perintah query yang digunakan adalah jenis perintah SELECT dan untuk menjalankan perintah query tersebut digunakan fungsi mysqli_query(). Sementara itu, fungsi mysqli_fetch_array() pada baris 10 digunakan untuk menangkap hasil perintah query dan memasukkannya ke dalam array.</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 21-26</td>
+<td width="15">:</td>
+<td width="557">Memanggil fungsi multipleSelect() dengan opsi placeholder dan filter, untuk mengaktifkan plugin Jquery Multiple-Select pada obyek dengan ID #demo3.</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 35-39</td>
+<td width="15">:</td>
+<td width="557">Menampilkan seluruh isi array $arrpropinsi ke dalam opsi combobox. Untuk menampilkannya menggunakan bentuk perulangan khusus foreach.</td>
+</tr>
+<tr valign="TOP">
+<td width="93">Baris 43-48</td>
+<td width="15">:</td>
+<td width="557">Saat tombol Pilih ditekan, PHP akan menangkap pilihan combobox yang dipilih dan menampilkannya di layar.</td>
+</tr>
+</tbody>
+</table>
+<p>Berikut ini tampilan hasil program <strong>demo3.php</strong> di atas.</p>
+<figure id="attachment_9851" style="width: 300px" class="wp-caption aligncenter"><a href="http://achmatim.net/wp-content/uploads/2013/08/multi-select-03.png"><img class="size-medium wp-image-9851" alt="Contoh Demo 3: Multiple-Select dengan Isi Data dari MySQL" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/multi-select-03-300x87.png" width="300" height="87" srcset="http://achmatim.net/wp-content/uploads/2013/08/multi-select-03-300x87.png 300w, http://achmatim.net/wp-content/uploads/2013/08/multi-select-03.png 723w" sizes="(max-width: 300px) 100vw, 300px"></a><figcaption class="wp-caption-text">Contoh Demo 3: Multiple-Select dengan Isi Data dari MySQL</figcaption></figure>
+<h2>Kesimpulan</h2>
+<p align="JUSTIFY">Plugin JQuery Multiple-Select merupakan salah satu plugin yang cukup handal untuk “mempercantik” tampilan combobox sehingga lebih nyaman dari sisi pengguna. Beberapa kelebihan yang ditawarkan oleh plugin ini antara lain kemudahan dalam implementasinya, serta dukungan berbagai opsi / pilihan seperti placeholder dan pencarian (filter).</p>
+<h2>Download</h2>
+<ul>
+<li>Download source code lengkap beserta plugin dan library JQuery. <div class="allinfos"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/zip.gif" alt="" title="" style="vertical-align: middle;"> <a href="http://achmatim.net/download/52/">Contoh Program JQuery Multiple-Select</a> (45.2 KiB, 7,954 hits)</div></li>
+<li>Download tutorial dalam bentuk PDF. <div class="allinfos"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/pdf.gif" alt="" title="" style="vertical-align: middle;"> <a href="http://achmatim.net/download/53/">Tutorial JQuery Multiple-Select Combobox</a> (324.2 KiB, 9,374 hits)</div></li>
+</ul>
+<p align="JUSTIFY"><span style="color: #0000ff;">Semoga tutorial ini bermanfaat untuk kita semua dan berbagilah hal baik ke sebanyak-banyaknya orang maka kebahagiaan akan menghampiri Anda. Satu Karya untuk Indonesia!</span></p>
+<h2>Referensi Terkait</h2>
+<ul>
+<li>Jquery Multiple-Select <a href="http://plugins.jquery.com/multiple.select/">http://plugins.jquery.com/multiple.select/</a></li>
+<li>Original Jquery Multiple-Select <a href="http://wenzhixin.net.cn/p/multiple-select/">http://wenzhixin.net.cn/p/multiple-select/</a></li>
+</ul>
+<p align="JUSTIFY">
+<!-- Simple Share Buttons Adder (6.3.4) simplesharebuttons.com --></p><div class="ssba ssba-wrap"><div style="text-align:left">Berbagi itu indah...<a data-site="" class="ssba_facebook_share" href="http://www.facebook.com/sharer.php?u=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/facebook.png" title="Facebook" class="ssba ssba-img" alt="Share on Facebook"></a><span class="ssba_sharecount">0</span><a data-site="" class="ssba_google_share" href="https://plus.google.com/share?url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/google.png" title="Google+" class="ssba ssba-img" alt="Share on Google+"></a><span class="ssba_sharecount">5</span><a data-site="" class="ssba_twitter_share" href="http://twitter.com/share?url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/&amp;text=JQuery+Multiple-Select+Combobox+untuk+Tampilan+Combobox+yang+Lebih+Baik+" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/twitter.png" title="Twitter" class="ssba ssba-img" alt="Tweet about this on Twitter"></a><a data-site="linkedin" class="ssba_linkedin_share ssba_share_link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/linkedin.png" title="LinkedIn" class="ssba ssba-img" alt="Share on LinkedIn"></a><span class="ssba_sharecount">0</span><a data-site="pinterest" class="ssba_pinterest_share" href="javascript:void((function()%7Bvar%20e=document.createElement(&#39;script&#39;);e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39;);e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39;);e.setAttribute(&#39;src&#39;,&#39;//assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)%7D)());"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/pinterest.png" title="Pinterest" class="ssba ssba-img" alt="Pin on Pinterest"></a><span class="ssba_sharecount">0</span><a data-site="digg" class="ssba_diggit_share ssba_share_link" href="http://www.digg.com/submit?url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/diggit.png" title="Digg" class="ssba ssba-img" alt="Digg this"></a></div></div>
+		
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+
+		
+			<div class="entry-tags clearfix">
+				<span class="meta-tags">
+					<a href="http://achmatim.net/tag/combobox/" rel="tag">combobox</a><a href="http://achmatim.net/tag/jquery/" rel="tag">jquery</a><a href="http://achmatim.net/tag/multiple-select/" rel="tag">multiple-select</a><a href="http://achmatim.net/tag/plugin/" rel="tag">plugin</a>				</span>
+			</div><!-- .entry-tags -->
+
+				
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://achmatim.net/2013/06/10/tips-membuat-file-ukuran-besar-dengan-cepat-di-linux-dan-windows/" rel="prev"><span class="screen-reader-text">Previous Post:</span>Tips: Membuat File Berukuran Besar dengan Cepat di Linux dan Windows</a></div><div class="nav-next"><a href="http://achmatim.net/2013/08/20/jquery-cara-mudah-redirect-halaman-dengan-interval-waktu/" rel="next"><span class="screen-reader-text">Next Post:</span>JQuery: Cara Mudah Redirect Halaman dengan Interval Waktu</a></div></div>
+	</nav>
+	</footer><!-- .entry-footer -->
+
+</article>
+
+	<div id="comments" class="comments-area">
+
+		
+			<header class="comments-header">
+
+				<h2 class="comments-title">
+					13 comments				</h2>
+
+			</header><!-- .comment-header -->
+
+			
+			<ol class="comment-list">
+						<li id="comment-23874" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-23874" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/933219d2ab8b107ef1cfc75738a160b2" srcset="http://0.gravatar.com/avatar/933219d2ab8b107ef1cfc75738a160b2?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn"><a href="http://-/" rel="external nofollow" class="url">Ida yani</a> </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-23874">
+							<time datetime="2013-08-02T21:04:05+00:00">
+								August 2, 2013 at 21:04							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>keren banget pak guru -,-</p>
+<p>pak aku punya pertanyyaaan nih<br>
+aku punya 2 buah combobox tapi tidak saling berkaitan, dan tidak terkoneksi kedatabase<br>
+apabila kita memilih combobox 1 dan 2<br>
+akan mempengaruhi textfield dibawahnya misalnya harga<br>
+itu gimana ya pa<br>
+mohon pencerahannya</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=23874#respond" onclick="return addComment.moveForm( &quot;div-comment-23874&quot;, &quot;23874&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to Ida yani">Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-23875" class="comment odd alt depth-2">
+			<article id="div-comment-23875" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/6d0ac61aaf54947c6728e45aef212add" srcset="http://0.gravatar.com/avatar/6d0ac61aaf54947c6728e45aef212add?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn"><a href="http://achmatim.net/" rel="external nofollow" class="url">Achmad Solichin</a> </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-23875">
+							<time datetime="2013-08-02T23:32:14+00:00">
+								August 2, 2013 at 23:32							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Pada prinsipnya sama seperti tutorial ini: <a href="http://achmatim.net/2013/01/15/manipulasi-combobox-dengan-ajax-jquery-studi-kasus-data-propinsi-kabupaten/" rel="nofollow">http://achmatim.net/2013/01/15/manipulasi-combobox-dengan-ajax-jquery-studi-kasus-data-propinsi-kabupaten/</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=23875#respond" onclick="return addComment.moveForm( &quot;div-comment-23875&quot;, &quot;23875&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to Achmad Solichin">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-24289" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-24289" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/a9dbd6cf3d78461f02c2ef9a451f5507" srcset="http://1.gravatar.com/avatar/a9dbd6cf3d78461f02c2ef9a451f5507?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn">fandy gunawan </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-24289">
+							<time datetime="2013-09-16T23:38:10+00:00">
+								September 16, 2013 at 23:38							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Memang bermutu website pak dosen, selalu membantu….<br>
+mau nanya lagi nih pak, saya hendak membuat dua radio button.<br>
+-radio button pertama untuk memilih textfield<br>
+-radio button kedua untuk memilih combobox<br>
+Bagaimana caranya agar apabila radio button pertama dipilih combobox-nya hilang. Begitu juga sebaliknya, apabila radio button kedua dipilih, maka textfieldnya hilang.?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=24289#respond" onclick="return addComment.moveForm( &quot;div-comment-24289&quot;, &quot;24289&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to fandy gunawan">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-25239" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-25239" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/ebc4322723fa6b81322402fd58a9f9c7" srcset="http://2.gravatar.com/avatar/ebc4322723fa6b81322402fd58a9f9c7?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn">yori </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-25239">
+							<time datetime="2013-12-09T15:35:48+00:00">
+								December 9, 2013 at 15:35							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>assalamualaikum. tutorialnya bagus pak. pak, saya ada pertanyaan ni pak.<br>
+1. bisa tidak pak, kalau select combo box itu dirancang secara otomatis, misal utk pilihan kelas X-A, X-B dst bisa nambah sendiri secara otomatis.<br>
+2.cara membuat menu pilihan tahun secara otomatis tapi bentuk pilihannya jadi 2013/2014. trims</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=25239#respond" onclick="return addComment.moveForm( &quot;div-comment-25239&quot;, &quot;25239&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to yori">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-25487" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-25487" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/2b3f5e74388435c6a6915ea2aef71e1c" srcset="http://2.gravatar.com/avatar/2b3f5e74388435c6a6915ea2aef71e1c?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn"><a href="http://goo.gl/sVNRlv" rel="external nofollow" class="url">OBAT ALAMI BATUK</a> </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-25487">
+							<time datetime="2014-03-03T21:12:44+00:00">
+								March 3, 2014 at 21:12							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>teerimakasih infonya sangat bermanfaat sekali</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=25487#respond" onclick="return addComment.moveForm( &quot;div-comment-25487&quot;, &quot;25487&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to OBAT ALAMI BATUK">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-36553" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-36553" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/a0f65dcd62009f0f5f3516f091cb5f97" srcset="http://1.gravatar.com/avatar/a0f65dcd62009f0f5f3516f091cb5f97?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn">Aenur </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-36553">
+							<time datetime="2014-11-02T01:01:34+00:00">
+								November 2, 2014 at 01:01							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>klo system search seperti ini menggunakan apa ya mas? <a href="http://mobil88.astra.co.id/otomotif/cari_mobil" rel="nofollow">http://mobil88.astra.co.id/otomotif/cari_mobil</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=36553#respond" onclick="return addComment.moveForm( &quot;div-comment-36553&quot;, &quot;36553&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to Aenur">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-39905" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-39905" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/03de6378e96c71bf0b6508593a30c853" srcset="http://0.gravatar.com/avatar/03de6378e96c71bf0b6508593a30c853?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn"><a href="http://cepicahyana.com/" rel="external nofollow" class="url">cepi cahyana</a> </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-39905">
+							<time datetime="2015-01-27T05:36:20+00:00">
+								January 27, 2015 at 05:36							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>kalau radio button gmn ya? #meresset yg chekded jadu unchecked</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=39905#respond" onclick="return addComment.moveForm( &quot;div-comment-39905&quot;, &quot;39905&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to cepi cahyana">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-40283" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-40283" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/11fcea70e16ece0ffd61a73dfac443e6" srcset="http://1.gravatar.com/avatar/11fcea70e16ece0ffd61a73dfac443e6?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn">Hendi </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-40283">
+							<time datetime="2015-02-27T22:36:04+00:00">
+								February 27, 2015 at 22:36							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Pak, Tutorialnya bagus dan mudah dimengerti.<br>
+namun saya punya contoh case berlatarbelakang sama dengan artikel ini.</p>
+<p>Jika setelah berhasil ditangkap array $_POST[‘demo3’] dan akan diproses “UPDATE” ke sebuah field mysql. Yang terjadi cuma 1 value terakhir yang masuk ke dalam field tsb.</p>
+<p>Mungkin bisa ditambahin contoh untuk artikel ini pak jika setelah tertangkap value dari get POST  lalu UPDATE ke sebuah field di database.</p>
+<p>Thanks before.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=40283#respond" onclick="return addComment.moveForm( &quot;div-comment-40283&quot;, &quot;40283&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to Hendi">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-61414" class="pingback even thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href="https://cinona.wordpress.com/2016/03/13/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" rel="external nofollow" class="url">JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik |</a>  			</div>
+</li><!-- #comment-## -->
+		<li id="comment-71048" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-71048" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/b4795de279ed2c79a36a556aadd30efc" srcset="http://2.gravatar.com/avatar/b4795de279ed2c79a36a556aadd30efc?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn">mokh dudy fahrizal </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-71048">
+							<time datetime="2017-01-16T08:10:14+00:00">
+								January 16, 2017 at 08:10							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Artikel yang luar biasa Pak Dosen, tapi ada beberapa hal yang ingin saya tanyakan.<br>
+Misalkan satu orang membawahi beberapa propinsi atau kabupaten dan pengisiannya secara langsung lewat  combobox otomatis, itu bagaimana pak ? Misalkan si A, dia mengawasi 3 kabupaten atau lebih..<br>
+terima kasih</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=71048#respond" onclick="return addComment.moveForm( &quot;div-comment-71048&quot;, &quot;71048&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to mokh dudy fahrizal">Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-71197" class="comment byuser comment-author-achmatim bypostauthor even depth-2 parent">
+			<article id="div-comment-71197" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/6d0ac61aaf54947c6728e45aef212add" srcset="http://0.gravatar.com/avatar/6d0ac61aaf54947c6728e45aef212add?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn"><a href="http://achmatim.net/" rel="external nofollow" class="url">Achmad Solichin</a> </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-71197">
+							<time datetime="2017-01-24T11:28:23+00:00">
+								January 24, 2017 at 11:28							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Di database dibuat many-to-many antara tabel yg menyimpan data orang (si A) dengan tabel yg menyimpan data kabupaten. Penyimpanan tinggal diulang untuk setiap kabupaten yg dipilih.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=71197#respond" onclick="return addComment.moveForm( &quot;div-comment-71197&quot;, &quot;71197&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to Achmad Solichin">Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-71432" class="comment odd alt depth-3 parent">
+			<article id="div-comment-71432" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/b4795de279ed2c79a36a556aadd30efc" srcset="http://2.gravatar.com/avatar/b4795de279ed2c79a36a556aadd30efc?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn">mokh dudy fahrizal </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-71432">
+							<time datetime="2017-02-08T12:53:23+00:00">
+								February 8, 2017 at 12:53							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>mohon maaf pak, saya secara pribadi masih ga ngerti maksudnya. Maklum baru pertama kali ini blajar PHP. Maksudnya many to many apa ?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=71432#respond" onclick="return addComment.moveForm( &quot;div-comment-71432&quot;, &quot;71432&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to mokh dudy fahrizal">Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-71456" class="comment even depth-4">
+			<article id="div-comment-71456" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/6d0ac61aaf54947c6728e45aef212add" srcset="http://0.gravatar.com/avatar/6d0ac61aaf54947c6728e45aef212add?s=112&amp;d=mm&amp;r=g 2x" class="avatar avatar-56 photo" height="56" width="56">						<b class="fn"><a href="http://achmatim.net/" rel="external nofollow" class="url">Achmad Solichin</a> </b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#comment-71456">
+							<time datetime="2017-02-10T05:14:34+00:00">
+								February 10, 2017 at 05:14							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>many to many itu salah satu bentuk relasi antar tabel, biasanya dipelajari sbg bagian dari proses perancangan basis data (bukan di php). Silahkan cek artikel singkat ini: <a href="https://en.wikipedia.org/wiki/Many-to-many_(data_model)" rel="nofollow">https://en.wikipedia.org/wiki/Many-to-many_(data_model)</a></p>
+<p>Salam</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/?replytocom=71456#respond" onclick="return addComment.moveForm( &quot;div-comment-71456&quot;, &quot;71456&quot;, &quot;respond&quot;, &quot;9848&quot; )" aria-label="Reply to Achmad Solichin">Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+			</ol><!-- .comment-list -->
+
+			
+		
+		
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span>Leave a Reply</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://achmatim.net/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required="true" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required="true" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="form-submit"> <input type="hidden" name="comment_post_ID" value="9848" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2dea7421a9"></p><div class="g-recaptcha" data-sitekey="6LfjiP8SAAAAAGu6CUO-HB3_soEp9erg-gYyegKo" data-theme="standard"><div style="width: 304px; height: 78px;"><div><iframe src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/anchor.html" title="recaptcha widget" width="304" height="78" frameborder="0" scrolling="no" name="undefined"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div><script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/api.js.download"></script>            <div id="recaptcha-submit-btn-area">&nbsp;<input name="submit" type="submit" id="submit" class="submit" value="Post Comment" tabindex="6"></div>
+            <noscript>
+            &lt;style type='text/css'&gt;#submit {display:none;}&lt;/style&gt;
+            &lt;input name="submit" type="submit" id="submit-alt" tabindex="6"
+                value="Submit Comment"/&gt; 
+            </noscript><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1492417551484"></form>
+			</div><!-- #respond -->
+	
+	</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</section><!-- #primary -->
+	
+	
+	<section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+
+		<div class="widget-wrap"><aside id="text-271674827" class="widget widget_text clearfix"><div class="widget-header"><h3 class="widget-title">Get Updates to Your Email</h3></div>			<div class="textwidget"><form style="border:1px solid #ccc;padding:3px;text-align:center;" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#39;http://feedburner.google.com/fb/a/mailverify?uri=achmatim&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=550,height=520&#39;);return true"><p>Masukkan Alamat Email Anda untuk mendapatkan informasi dan tutorial terkini dari Achmatim.Net. Gratis untuk Anda</p><p><input type="text" style="width:85%" name="email"></p><input type="hidden" value="achmatim" name="uri"><input type="hidden" name="loc" value="en_US"><input type="submit" value="Subscribe"></form>
+<p align="center"><a href="http://feeds.feedburner.com/achmatim"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/achmatim" height="26" width="88" style="border:0" alt=""></a></p></div>
+		</aside></div><div class="widget-wrap"><aside id="tag_cloud-3" class="widget widget_tag_cloud clearfix"><div class="widget-header"><h3 class="widget-title">Tags</h3></div><div class="tagcloud"><a href="http://achmatim.net/tag/algoritma/" class="tag-link-24 tag-link-position-1" title="6 topics" style="font-size: 9.89189189189pt;">algoritma</a>
+<a href="http://achmatim.net/tag/budiluhur/" class="tag-link-35 tag-link-position-2" title="4 topics" style="font-size: 8pt;">budiluhur</a>
+<a href="http://achmatim.net/tag/buku-gratis/" class="tag-link-180 tag-link-position-3" title="7 topics" style="font-size: 10.5225225225pt;">buku gratis</a>
+<a href="http://achmatim.net/tag/contoh-program/" class="tag-link-220 tag-link-position-4" title="6 topics" style="font-size: 9.89189189189pt;">contoh program</a>
+<a href="http://achmatim.net/tag/contoh-program-php/" class="tag-link-365 tag-link-position-5" title="5 topics" style="font-size: 9.00900900901pt;">contoh program php</a>
+<a href="http://achmatim.net/tag/css/" class="tag-link-42 tag-link-position-6" title="4 topics" style="font-size: 8pt;">css</a>
+<a href="http://achmatim.net/tag/database/" class="tag-link-43 tag-link-position-7" title="4 topics" style="font-size: 8pt;">database</a>
+<a href="http://achmatim.net/tag/download/" class="tag-link-465 tag-link-position-8" title="19 topics" style="font-size: 15.5675675676pt;">Download</a>
+<a href="http://achmatim.net/tag/dpw2/" class="tag-link-49 tag-link-position-9" title="4 topics" style="font-size: 8pt;">dpw2</a>
+<a href="http://achmatim.net/tag/dreamweaver/" class="tag-link-50 tag-link-position-10" title="8 topics" style="font-size: 11.1531531532pt;">dreamweaver</a>
+<a href="http://achmatim.net/tag/ebook/" class="tag-link-53 tag-link-position-11" title="4 topics" style="font-size: 8pt;">ebook</a>
+<a href="http://achmatim.net/tag/elearning/" class="tag-link-54 tag-link-position-12" title="5 topics" style="font-size: 9.00900900901pt;">elearning</a>
+<a href="http://achmatim.net/tag/general/" class="tag-link-58 tag-link-position-13" title="16 topics" style="font-size: 14.6846846847pt;">general</a>
+<a href="http://achmatim.net/tag/html/" class="tag-link-63 tag-link-position-14" title="4 topics" style="font-size: 8pt;">html</a>
+<a href="http://achmatim.net/tag/internet/" class="tag-link-72 tag-link-position-15" title="5 topics" style="font-size: 9.00900900901pt;">internet</a>
+<a href="http://achmatim.net/tag/istri/" class="tag-link-74 tag-link-position-16" title="6 topics" style="font-size: 9.89189189189pt;">istri</a>
+<a href="http://achmatim.net/tag/java-programming/" class="tag-link-17 tag-link-position-17" title="16 topics" style="font-size: 14.6846846847pt;">java</a>
+<a href="http://achmatim.net/tag/java-swing/" class="tag-link-292 tag-link-position-18" title="10 topics" style="font-size: 12.2882882883pt;">Java Swing</a>
+<a href="http://achmatim.net/tag/jquery/" class="tag-link-177 tag-link-position-19" title="19 topics" style="font-size: 15.5675675676pt;">jquery</a>
+<a href="http://achmatim.net/tag/kampus-budi-luhur/" class="tag-link-464 tag-link-position-20" title="6 topics" style="font-size: 9.89189189189pt;">Kampus Budi Luhur</a>
+<a href="http://achmatim.net/tag/kehamilan/" class="tag-link-80 tag-link-position-21" title="10 topics" style="font-size: 12.2882882883pt;">kehamilan</a>
+<a href="http://achmatim.net/tag/keluarga/" class="tag-link-82 tag-link-position-22" title="14 topics" style="font-size: 14.0540540541pt;">keluarga</a>
+<a href="http://achmatim.net/tag/materi-kuliah/" class="tag-link-473 tag-link-position-23" title="27 topics" style="font-size: 17.4594594595pt;">Materi</a>
+<a href="http://achmatim.net/tag/menu/" class="tag-link-92 tag-link-position-24" title="6 topics" style="font-size: 9.89189189189pt;">menu</a>
+<a href="http://achmatim.net/tag/motivasi/" class="tag-link-468 tag-link-position-25" title="32 topics" style="font-size: 18.3423423423pt;">Motivasi</a>
+<a href="http://achmatim.net/tag/tutorial-mysql/" class="tag-link-474 tag-link-position-26" title="35 topics" style="font-size: 18.8468468468pt;">MySQL</a>
+<a href="http://achmatim.net/tag/others/" class="tag-link-278 tag-link-position-27" title="5 topics" style="font-size: 9.00900900901pt;">Others</a>
+<a href="http://achmatim.net/tag/pernak-pernik/" class="tag-link-103 tag-link-position-28" title="6 topics" style="font-size: 9.89189189189pt;">pernakpernik</a>
+<a href="http://achmatim.net/tag/personal/" class="tag-link-469 tag-link-position-29" title="63 topics" style="font-size: 22pt;">personal</a>
+<a href="http://achmatim.net/tag/pemrograman-php/" class="tag-link-475 tag-link-position-30" title="40 topics" style="font-size: 19.4774774775pt;">PHP</a>
+<a href="http://achmatim.net/tag/programming/" class="tag-link-10 tag-link-position-31" title="5 topics" style="font-size: 9.00900900901pt;">programming</a>
+<a href="http://achmatim.net/tag/pti/" class="tag-link-108 tag-link-position-32" title="6 topics" style="font-size: 9.89189189189pt;">pti</a>
+<a href="http://achmatim.net/tag/puisi/" class="tag-link-109 tag-link-position-33" title="6 topics" style="font-size: 9.89189189189pt;">puisi</a>
+<a href="http://achmatim.net/tag/pemrogaman-web-2/" class="tag-link-110 tag-link-position-34" title="15 topics" style="font-size: 14.3063063063pt;">pw2</a>
+<a href="http://achmatim.net/tag/query/" class="tag-link-378 tag-link-position-35" title="5 topics" style="font-size: 9.00900900901pt;">query</a>
+<a href="http://achmatim.net/tag/rekomendasi/" class="tag-link-114 tag-link-position-36" title="14 topics" style="font-size: 14.0540540541pt;">rekomendasi</a>
+<a href="http://achmatim.net/tag/seminar/" class="tag-link-116 tag-link-position-37" title="5 topics" style="font-size: 9.00900900901pt;">seminar</a>
+<a href="http://achmatim.net/tag/sql/" class="tag-link-162 tag-link-position-38" title="6 topics" style="font-size: 9.89189189189pt;">sql</a>
+<a href="http://achmatim.net/tag/tugas-ujian/" class="tag-link-477 tag-link-position-39" title="7 topics" style="font-size: 10.5225225225pt;">tugas &amp; ujian</a>
+<a href="http://achmatim.net/tag/tutorial/" class="tag-link-126 tag-link-position-40" title="11 topics" style="font-size: 12.7927927928pt;">tutorial</a>
+<a href="http://achmatim.net/tag/ujian/" class="tag-link-129 tag-link-position-41" title="6 topics" style="font-size: 9.89189189189pt;">ujian</a>
+<a href="http://achmatim.net/tag/ulang-tahun/" class="tag-link-130 tag-link-position-42" title="5 topics" style="font-size: 9.00900900901pt;">ulang tahun</a>
+<a href="http://achmatim.net/tag/web/" class="tag-link-135 tag-link-position-43" title="15 topics" style="font-size: 14.3063063063pt;">web</a>
+<a href="http://achmatim.net/tag/web-design/" class="tag-link-136 tag-link-position-44" title="6 topics" style="font-size: 9.89189189189pt;">web design</a>
+<a href="http://achmatim.net/tag/wordpress/" class="tag-link-472 tag-link-position-45" title="12 topics" style="font-size: 13.1711711712pt;">Wordpress</a></div>
+</aside></div><div class="widget-wrap"><aside id="overall-top-10-posts" class="widget widget_dailytopten_overall clearfix"><div class="widget-header"><h3 class="widget-title">Top Posts Overall</h3></div><ul>
+<li><a href="http://achmatim.net/2010/01/30/buku-gratis-mysql-5-dari-pemula-hingga-mahir/">Buku Gratis: MySQL 5, Dari Pemula Hingga Mahir</a> (18881 views)</li>
+<li><a href="http://achmatim.net/2009/04/15/buku-gratis-pemrograman-web-dengan-php-dan-mysql/">Buku Gratis: Pemrograman Web dengan PHP dan MySQL</a> (16535 views)</li>
+<li><a href="http://achmatim.net/downloads/">Downloads</a> (15940 views)</li>
+<li><a href="http://achmatim.net/2010/01/18/perintah-mysql-untuk-menampilkan-data-dari-beberapa-tabel/">Perintah MySQL untuk Menampilkan Data dari Beberapa Tabel</a> (15516 views)</li>
+<li><a href="http://achmatim.net/2009/12/09/pengenalan-perintah-dasar-sql-di-mysql/">Pengenalan Perintah Dasar SQL di MySQL</a> (11872 views)</li>
+<li><a href="http://achmatim.net/2009/12/10/buku-gratis-pemrograman-bahasa-c-dengan-turbo-c/">Buku Gratis: Pemrograman Bahasa C dengan Turbo C</a> (11767 views)</li>
+<li><a href="http://achmatim.net/2008/07/15/contoh-program-php-mysql-untuk-data-pegawai/">Contoh Program PHP-MySQL untuk Data Pegawai</a> (11352 views)</li>
+<li><a href="http://achmatim.net/2008/12/22/dreamweaver-php-dan-mysql-untuk-aplikasi-data-mahasiswa/">Dreamweaver, PHP dan MySQL untuk Aplikasi Data Mahasiswa</a> (9432 views)</li>
+<li><a href="http://achmatim.net/2009/01/05/dreamweaver-php-dan-mysql-untuk-aplikasi-data-mahasiswa-bag-2/">Dreamweaver, PHP dan MySQL untuk Aplikasi Data Mahasiswa (Bag 2)</a> (8982 views)</li>
+<li><a href="http://achmatim.net/2009/11/29/step-by-step-php-membuat-laporan-pdf-dengan-fpdf/">Step by Step PHP Membuat Laporan PDF dengan FPDF</a> (8527 views)</li>
+</ul>
+</aside></div><div class="widget-wrap"><aside id="ssba_widget-2" class="widget widget_ssba_widget clearfix"><div class="widget-header"><h3 class="widget-title">Share Buttons</h3></div><!-- Simple Share Buttons Adder (6.3.4) simplesharebuttons.com --><div class="ssba ssba-wrap"><div style="text-align:left"><a data-site="" class="ssba_facebook_share" href="http://www.facebook.com/sharer.php?u=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/facebook.png" title="Facebook" class="ssba ssba-img" alt="Share on Facebook"></a><span class="ssba_sharecount">0</span><a data-site="" class="ssba_google_share" href="https://plus.google.com/share?url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/google.png" title="Google+" class="ssba ssba-img" alt="Share on Google+"></a><span class="ssba_sharecount">5</span><a data-site="" class="ssba_twitter_share" href="http://twitter.com/share?url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/&amp;text=JQuery+Multiple-Select+Combobox+untuk+Tampilan+Combobox+yang+Lebih+Baik+" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/twitter.png" title="Twitter" class="ssba ssba-img" alt="Tweet about this on Twitter"></a><a data-site="linkedin" class="ssba_linkedin_share ssba_share_link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/linkedin.png" title="LinkedIn" class="ssba ssba-img" alt="Share on LinkedIn"></a><span class="ssba_sharecount">0</span><a data-site="pinterest" class="ssba_pinterest_share" href="javascript:void((function()%7Bvar%20e=document.createElement(&#39;script&#39;);e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39;);e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39;);e.setAttribute(&#39;src&#39;,&#39;//assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)%7D)());"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/pinterest.png" title="Pinterest" class="ssba ssba-img" alt="Pin on Pinterest"></a><span class="ssba_sharecount">0</span><a data-site="digg" class="ssba_diggit_share ssba_share_link" href="http://www.digg.com/submit?url=http://achmatim.net/2013/07/15/jquery-multiple-select-combobox-untuk-tampilan-combobox-yang-lebih-baik/" target="_blank"><img src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/diggit.png" title="Digg" class="ssba ssba-img" alt="Digg this"></a></div></div></aside></div><div class="widget-wrap"><aside id="wptt_twittertweets-2" class="widget TwitterTweets clearfix"><div class="widget-header"><h3 class="widget-title">Latest Tweets (@achmatim)</h3></div>			
+
+<ul class="fetched_tweets dark">
+	
+			    
+			        <li class="tweets_avatar">
+			        	<div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="clear"></div></div>			       		<div class="tweet_data">
+			        	Anak Penyedia Batu <a href="https://t.co/dXo3kboGCX" target="_blank" rel="nofollow">https://t.co/dXo3kboGCX</a>
+ <a href="https://twitter.com/search?q=%23Motivasi" target="_blank" rel="nofollow">#Motivasi</a>			        	</div>
+			            <br>
+			            <div class="clear"></div>
+			            <div class="times">
+			            <em>
+			            
+						<a href="https://www.twitter.com/achmatim" target="_blank" title="Follow achmatim on Twitter [Opens new window]">
+							10 hours							</a>
+			            </em>
+			            </div>
+						       
+<div class="tweets-intent-data">
+      <ul class="tweet-actions " role="menu">
+  <li><a href="https://twitter.com/intent/tweet?in_reply_to=853843008751411205" data-lang="en" class="in-reply-to" title="Reply" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/retweet?tweet_id=853843008751411205" data-lang="en" class="retweet" title="Retweet" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/favorite?tweet_id=853843008751411205" data-lang="en" class="favorite" title="Favorite" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+</ul>
+    </div>
+												<div class="clear"></div>
+</div><div class="clear"></div>
+			        </li>
+			    
+			        <li class="tweets_avatar">
+			        	<div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="clear"></div></div>			       		<div class="tweet_data">
+			        	<a href="https://twitter.com/search?q=%23JQuery" target="_blank" rel="nofollow">#JQuery</a>: Cara Mudah Redirect Halaman dengan Interval Waktu <a href="https://t.co/NBgOZ3Xjys" target="_blank" rel="nofollow">https://t.co/NBgOZ3Xjys</a>
+ <a href="https://twitter.com/search?q=%23WebDevelopment" target="_blank" rel="nofollow">#WebDevelopment</a>			        	</div>
+			            <br>
+			            <div class="clear"></div>
+			            <div class="times">
+			            <em>
+			            
+						<a href="https://www.twitter.com/achmatim" target="_blank" title="Follow achmatim on Twitter [Opens new window]">
+							10 hours							</a>
+			            </em>
+			            </div>
+						       
+<div class="tweets-intent-data">
+<span class="stats-narrow customisable-border"><span class="stats" data-scribe="component:stats">
+   <a href="https://twitter.com/achmatim/statuses/853843006683729920" title="View Tweet on Twitter" data-scribe="element:favorite_count" target="_blank">
+    <span class="stats-favorites">
+      <strong>1</strong> Favorite    </span>
+  </a>
+    
+</span>
+</span>
+<div class="clear"></div>
+<div class="seperator_wpltf"></div>
+      <ul class="tweet-actions " role="menu">
+  <li><a href="https://twitter.com/intent/tweet?in_reply_to=853843006683729920" data-lang="en" class="in-reply-to" title="Reply" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/retweet?tweet_id=853843006683729920" data-lang="en" class="retweet" title="Retweet" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/favorite?tweet_id=853843006683729920" data-lang="en" class="favorite" title="Favorite" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+</ul>
+    </div>
+												<div class="clear"></div>
+</div><div class="clear"></div>
+			        </li>
+			    
+			        <li class="tweets_avatar">
+			        	<div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="clear"></div></div>			       		<div class="tweet_data">
+			        	7 Fitur Terbaru yang akan ada di <a href="https://twitter.com/search?q=%23Wordpress" target="_blank" rel="nofollow">#Wordpress</a> 3.0 <a href="https://t.co/3z2m9KaK30" target="_blank" rel="nofollow">https://t.co/3z2m9KaK30</a>			        	</div>
+			            <br>
+			            <div class="clear"></div>
+			            <div class="times">
+			            <em>
+			            
+						<a href="https://www.twitter.com/achmatim" target="_blank" title="Follow achmatim on Twitter [Opens new window]">
+							10 hours							</a>
+			            </em>
+			            </div>
+						       
+<div class="tweets-intent-data">
+      <ul class="tweet-actions " role="menu">
+  <li><a href="https://twitter.com/intent/tweet?in_reply_to=853843004376862720" data-lang="en" class="in-reply-to" title="Reply" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/retweet?tweet_id=853843004376862720" data-lang="en" class="retweet" title="Retweet" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/favorite?tweet_id=853843004376862720" data-lang="en" class="favorite" title="Favorite" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+</ul>
+    </div>
+												<div class="clear"></div>
+</div><div class="clear"></div>
+			        </li>
+			    
+			        <li class="tweets_avatar">
+			        	<div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="clear"></div></div>			       		<div class="tweet_data">
+			        	Elastic: Visual Theme Editor untuk <a href="https://twitter.com/search?q=%23Wordpress" target="_blank" rel="nofollow">#Wordpress</a> <a href="https://t.co/tGYke8pnaS" target="_blank" rel="nofollow">https://t.co/tGYke8pnaS</a>			        	</div>
+			            <br>
+			            <div class="clear"></div>
+			            <div class="times">
+			            <em>
+			            
+						<a href="https://www.twitter.com/achmatim" target="_blank" title="Follow achmatim on Twitter [Opens new window]">
+							16 hours							</a>
+			            </em>
+			            </div>
+						       
+<div class="tweets-intent-data">
+<span class="stats-narrow customisable-border"><span class="stats" data-scribe="component:stats">
+   <a href="https://twitter.com/achmatim/statuses/853752237184606209" title="View Tweet on Twitter" data-scribe="element:favorite_count" target="_blank">
+    <span class="stats-favorites">
+      <strong>1</strong> retweet    </span>
+  </a>
+    <a href="https://twitter.com/achmatim/statuses/853752237184606209" title="View Tweet on Twitter" data-scribe="element:favorite_count" target="_blank">
+    <span class="stats-favorites">
+      <strong>1</strong> Favorite    </span>
+  </a>
+    
+</span>
+</span>
+<div class="clear"></div>
+<div class="seperator_wpltf"></div>
+      <ul class="tweet-actions " role="menu">
+  <li><a href="https://twitter.com/intent/tweet?in_reply_to=853752237184606209" data-lang="en" class="in-reply-to" title="Reply" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/retweet?tweet_id=853752237184606209" data-lang="en" class="retweet" title="Retweet" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/favorite?tweet_id=853752237184606209" data-lang="en" class="favorite" title="Favorite" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+</ul>
+    </div>
+												<div class="clear"></div>
+</div><div class="clear"></div>
+			        </li>
+			    
+			        <li class="tweets_avatar">
+			        	<div class="tweet_wrap"><div class="wdtf-user-card ltr"><div class="clear"></div></div>			       		<div class="tweet_data">
+			        	Koneksi <a href="https://twitter.com/search?q=%23PHP" target="_blank" rel="nofollow">#PHP</a> ke MS Access dengan ODBC <a href="https://t.co/KLxg3nEw2N" target="_blank" rel="nofollow">https://t.co/KLxg3nEw2N</a>			        	</div>
+			            <br>
+			            <div class="clear"></div>
+			            <div class="times">
+			            <em>
+			            
+						<a href="https://www.twitter.com/achmatim" target="_blank" title="Follow achmatim on Twitter [Opens new window]">
+							16 hours							</a>
+			            </em>
+			            </div>
+						       
+<div class="tweets-intent-data">
+<span class="stats-narrow customisable-border"><span class="stats" data-scribe="component:stats">
+   <a href="https://twitter.com/achmatim/statuses/853752235427221504" title="View Tweet on Twitter" data-scribe="element:favorite_count" target="_blank">
+    <span class="stats-favorites">
+      <strong>3</strong> retweets    </span>
+  </a>
+    <a href="https://twitter.com/achmatim/statuses/853752235427221504" title="View Tweet on Twitter" data-scribe="element:favorite_count" target="_blank">
+    <span class="stats-favorites">
+      <strong>1</strong> Favorite    </span>
+  </a>
+    
+</span>
+</span>
+<div class="clear"></div>
+<div class="seperator_wpltf"></div>
+      <ul class="tweet-actions " role="menu">
+  <li><a href="https://twitter.com/intent/tweet?in_reply_to=853752235427221504" data-lang="en" class="in-reply-to" title="Reply" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/retweet?tweet_id=853752235427221504" data-lang="en" class="retweet" title="Retweet" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+  <li><a href="https://twitter.com/intent/favorite?tweet_id=853752235427221504" data-lang="en" class="favorite" title="Favorite" target="_blank"><span aria-hidden="true" data-icon="" style="color:#999999;"></span></a></li>
+</ul>
+    </div>
+												<div class="clear"></div>
+</div><div class="clear"></div>
+			        </li>
+			    
+						</ul>
+			
+			</aside></div>
+	</section><!-- #secondary -->
+
+	
+
+	</div><!-- #content -->
+
+	
+	<div id="footer" class="footer-wrap">
+
+		<footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+
+			
+			<div id="footer-text" class="site-info">
+				
+	<span class="credit-link">
+		Powered by <a href="http://wordpress.org/" title="WordPress">WordPress</a> and <a href="https://themezee.com/themes/tortuga/" title="Tortuga WordPress Theme">Tortuga</a>.	</span>
+
+				</div><!-- .site-info -->
+
+		</footer><!-- #colophon -->
+
+	</div>
+
+</div><!-- #page -->
+
+            <script type="text/javascript">
+            var sub = document.getElementById('submit');
+            document.getElementById('recaptcha-submit-btn-area').appendChild (sub);
+            document.getElementById('submit').tabIndex = 6;
+            if ( typeof _recaptcha_wordpress_savedcomment != 'undefined') {
+                document.getElementById('comment').value = 
+                    _recaptcha_wordpress_savedcomment;
+            }
+            </script><script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/form.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/jquery.form.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/scripts.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/jquery.fancybox.pack.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/light.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var qpprFrontData = {"linkData":{"http:\/\/achmatim.net\/buku-gratis\/pemrograman-web-dengan-php-dan-mysql\/":[0,0,""],"http:\/\/achmatim.net\/buku-gratis\/algoritma-dan-pemrograman-dengan-turbo-c\/":[0,0,""],"http:\/\/achmatim.net\/tutorial\/php\/":[0,0,""],"http:\/\/achmatim.net\/tutorial\/mysql\/":[0,0,""],"http:\/\/achmatim.net\/tutorial\/dreamweaver\/":[0,0,""],"http:\/\/achmatim.net\/buku-gratis\/mysql-5-dari-pemula-hingga-mahir\/":[0,0,""]},"siteURL":"http:\/\/achmatim.net","siteURLq":"http:\/\/achmatim.net"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/qppr_frontend_script.min.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/ssba.min.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/comment-reply.js.download"></script>
+<script type="text/javascript" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/wp-embed.js.download"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3981710-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<!-- Dynamic page generated in 4.308 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2017-04-17 15:25:47 -->
+
+<!-- Compression = gzip --><div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/bframe.html" title="recaptcha challenge" frameborder="0" scrolling="no" name="mqqdb8nfbglj" style="width: 100%; height: 100%;"></iframe></div></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/_dMxoUH0Bax.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./JQuery Multiple-Select Combobox untuk Tampilan Combobox yang Lebih Baik - Achmatim.Net_files/_dMxoUH0Bax(1).html" style="border: none;"></iframe></div></div></div></body></html>
